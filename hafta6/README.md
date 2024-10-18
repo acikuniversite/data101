@@ -1,0 +1,11 @@
+İçerik
+- [1. Veri Mühendisliğine Giriş](./hafta6.1)
+- [2. ETL ve ELT Süreçleri](./hafta6.2)
+- [3. Zamanlama ve Orkestrasyon Araçları ile N-1 Çalışmak](./hafta6.3)
+- [4. Veri Entegrasyonu ve Veri Kalitesi Yönetimi](./hafta6.4)
+- [5. Büyük Veri ve Büyük Veri Mühendisliği](./hafta6.5)
+- [6. Veri Ambarı ve Veri Gölü](./hafta6.6)
+- [7. Veri Güvenliği ve Uyum](./hafta6.7)
+- [8. Sonuç ve Öneriler](./hafta6.8)
+- [Workshop:](./hafta6.9)
+	- **Senaryo**: Bir yazılım geliştirici topluluğu, Github üzerindeki trend projeleri ve konuları takip etmek istiyor. Amacınız, Github Trends sayfasından en popüler projelerin bilgilerini toplayarak, bu veriyi analiz etmeye uygun bir formata dönüştürmek ve veri ambarına yüklemek. Toplanan verilerdeki projelerin adı, yıldız sayısı, dil bilgisi ve açıklamaları gibi alanlar yer alıyor.
