@@ -1,15 +1,15 @@
 ## İçerikler
 - **Konu Başlıkları:**
-	1. [**Veri Modelleme Kavramları**](./hafta3.1)
+	1. [**Veri Modelleme Kavramları**](./hafta3.1.md)
 		1. Veri Modellemenin Tanımı ve Önemi
 		2. Veri Modelleme Süreci
-	2. [**ER (Varlık-İlişki) Diyagramları**](./hafta3.2)
+	2. [**ER (Varlık-İlişki) Diyagramları**](./hafta3.2.md)
 		1. ER Diyagramlarının Temel Bileşenleri
 		2. Kardinalite ve İlişkiler
-	1. [**SQL Tasarım Kuralları ve Normalizasyon**](./hafta3.3)
+	1. [**SQL Tasarım Kuralları ve Normalizasyon**](./hafta3.3.md)
 		1. Veritabanı Tasarım Kuralları
 		2. Normalizasyon
-- [**Workshop:**](./hafta3.4)
+- [**Workshop:**](./hafta3.4.md)
 	- **Senaryo:** Bir restoran zinciri, tüm müşteri siparişlerini, menü öğelerini ve çalışan bilgilerini merkezi bir sistemde toplamak istiyor. Bu sistem, müşterilerin verdikleri siparişlerin takip edilmesini, menüdeki yemeklerin stoklarının kontrol edilmesini ve çalışanların yönetimini sağlamalı. Şirket bu verilerin hepsini yönetmek için bir veritabanı tasarımı talep ediyor ve sizin grubunuzdan bu veritabanını modellemenizi istiyor.
 
 ## Ek Kaynaklar
