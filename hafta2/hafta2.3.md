@@ -1,4 +1,3 @@
-## 4. İleri SQL
 İleri SQL konuları, veritabanı işlemlerini daha karmaşık ve verimli hale getirmek için kullanılan gelişmiş sorgulama ve yönetim tekniklerini içerir. Bu bölümde aşağıdaki konulara değineceğiz:
 
 -	JOIN İşlemleri
@@ -14,7 +13,7 @@
 ### 4.1 JOIN İşlemleri
 JOIN işlemleri, birden fazla tablodan veri çekmek ve bu verileri ilişkilerine göre birleştirmek için kullanılır.
 
-![[img1.png]]
+![[./img1.png]]
 
 #### 4.1.1 INNER JOIN
 **Tanım:** Her iki tabloda da eşleşen kayıtları getirir.
@@ -296,8 +295,8 @@ ADD CONSTRAINT pk_uye_id PRIMARY KEY (uye_id);
 **4.10.2 Yabancı Anahtar (FOREIGN KEY)**
 Tablolar arasındaki ilişkileri tanımlar ve referans bütünlüğünü sağlar.
 ```
-ALTER TABLE odunc
-ADD CONSTRAINT fk_odunc_uye_id FOREIGN KEY (uye_id) REFERENCES uyeler(uye_id);
+ALTER TABLE Kitap
+ADD CONSTRAINT fk_kitap_yayinevi_id FOREIGN KEY (yayinevi_id) REFERENCES Yayınevi(yayinevi_id);
 ```
 **4.10.3 Benzersizlik Kısıtlaması (UNIQUE)**
 Bir alanın benzersiz olmasını sağlar.

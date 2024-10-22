@@ -1,3 +1,16 @@
+## Kurs Tanımı:
+Bu kurs, veri temellerinden başlayarak SQL, NoSQL, veri bilimi, veri mühendisliği ve veri mimarisi gibi kritik alanlarda katılımcılara temel ve orta düzeyde bilgi sağlamayı amaçlamaktadır. Haftalık derslerde, her konuya geniş bir perspektiften bakılarak, bu alanlara yeni giren ya da uzmanlaşmayı hedefleyen katılımcıların kapsamlı bir bakış açısı kazanmaları hedeflenmektedir.
+
+Derslerin odak noktası, teorik bilginin yanı sıra pratik uygulamalar ve senaryolarla desteklenen workshoplar ile öğrencilerin iş dünyasında karşılaşabilecekleri problemlere çözüm üretebilme yetilerini geliştirmektir. Katılımcılar, veritabanı tasarımı, veri mühendisliği süreçleri, büyük veri teknolojileri ve bulut tabanlı veri yönetimi gibi birçok konuyu ele alarak, kariyer yolculuklarında ihtiyaç duyacakları becerileri edineceklerdir.
+
+## Başlamadan Önce
+
+Bu dersin amacı, her hafta işlenecek olan **SQL**, **NoSQL**, **veri bilimi**, **veri mühendisliği** ve **veri mimarisi** gibi konularda uzmanlık seviyesine ulaşmak değildir. Bunun yerine, bu ders; bu alanlara yeni adım atan veya derinleşmeye başlayan katılımcıların, temel ve orta düzeyde birçok bilgiyi öğrenmelerini ve duymalarını hedefler.
+
+Ders boyunca, öğrencilerin bu konulara dair önemli kavramları kavramalarını sağlamak, ayrıca kariyerlerinde ihtiyaç duyabilecekleri **yol haritalarını** daha net bir şekilde görebilmelerine yardımcı olmak temel amaçlarımızdandır.
+
+## Ders Programı
+
 **Hafta 1: Veri Temelleri ve Veritabanı Kavramları**
 [Ders Notu](hafta1/README.md)
 - **Konu Başlıkları:**
@@ -134,7 +147,7 @@
   
 
 **Hafta 6: Veri Mühendisliği ve ETL Süreçleri**
-[Ders Notu](./hafta6.md)
+[Ders Notu](./hafta6)
 - **Konu Başlıkları:**
 	- **Veri Mühendisliğine Giriş**
 	- **ETL ve ELT Süreçleri**
@@ -179,7 +192,7 @@
   
 
 **Hafta 7: Veri Bilimi ve Analitiği**
-[Ders Notu](./hafta7)
+[Ders Notu](hafta7.md)
 - **Konu Başlıkları:**
 - Veri bilimine giriş
 - Temel istatistik ve veri görselleştirme

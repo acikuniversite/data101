@@ -3,26 +3,42 @@
 ### Veri Tanımlama Dili (DDL)
 - **Tanım:** Veritabanı nesnelerinin (tablolar, indeksler, şemalar) tanımlanması ve değiştirilmesi için kullanılır.
 - **Temel DDL Komutları:**
-- **CREATE:** Yeni veritabanı nesneleri oluşturur.
+	- **CREATE:** Yeni veritabanı nesneleri oluşturur.
 	- Örnek: CREATE TABLE, CREATE INDEX
-- **ALTER:** Mevcut veritabanı nesnelerini değiştirir.
+	```
+	CREATE TABLE kitaplar (
+	    kitap_id INT PRIMARY KEY,
+	    kitap_adi VARCHAR(255),
+	    yazar VARCHAR(255),
+	    stok INT
+	);
+	```
+	- **ALTER:** Mevcut veritabanı nesnelerini değiştirir.
 	- Örnek: ALTER TABLE ile tabloya sütun eklemek.
-- **DROP:** Veritabanı nesnelerini siler.
+	``` 
+	ALTER TABLE kitaplar ADD yayinevi_id INT;
+	```
+	- **DROP:** Veritabanı nesnelerini siler.
 	- Örnek: DROP TABLE, DROP INDEX
-- **TRUNCATE:** Bir tablodaki tüm verileri hızlıca siler.
-
+	``` 
+	DROP TABLE kitaplar;
+	```
+	- **TRUNCATE:** Bir tablodaki tüm verileri hızlıca siler.
+	```
+	TRUNCATE TABLE kitaplar;		
+	```
 
 ### Veri Manipülasyon Dili (DML)
 - **Tanım:** Veritabanındaki verileri eklemek, güncellemek ve silmek için kullanılır.
 - **Temel DML Komutları:**
-- **SELECT:** Verileri sorgular ve getirir.
-- **INSERT INTO:** Yeni veri ekler.
-- **UPDATE:** Mevcut verileri günceller.
-- **DELETE:** Verileri siler.
+	- **SELECT:** Verileri sorgular ve getirir.
+	- **INSERT INTO:** Yeni veri ekler.
+	- **UPDATE:** Mevcut verileri günceller.
+	- **DELETE:** Verileri siler.
 
 
 ## 3. Temel SQL Sorguları ve İşlemleri
-### SELECT Sorgusu**
+### SELECT Sorgusu
 - **Amaç:** Veritabanından veri çekmek için kullanılır.
 - **Sözdizimi:**
 ```
@@ -30,16 +46,16 @@ SELECT sütun1, sütun2, ...
 FROM tablo_adi;
 ```
 **Örnek**
-`SELECT isim, soyisim FROM uyeler;`
+``` 
+SELECT kitap_adi, yazar FROM kitaplar 
+```
 
 ### WHERE Şartı
 - **Amaç:** Sorgularda belirli koşulları uygulamak için kullanılır.
 - **Sözdizimi:**
 
 ```
-SELECT sütun1, sütun2, ...
-FROM tablo_adi
-WHERE koşul;
+SELECT kitap_adi, yazar FROM kitaplar WHERE kitap_id = 1;
 ```
 
 **Örnek**
@@ -53,7 +69,11 @@ INSERT INTO tablo_adi (sütun1, sütun2, ...)
 VALUES (değer1, değer2, ...);
 ```
 **Örnek**
-`INSERT INTO uyeler (isim, soyisim, email) VALUES ('Alameddin', 'Celik', 'alameddin.celik@acikuniversite.org');`
+```
+INSERT INTO kitaplar (kitap_id, kitap_adi, yazar, stok) 
+VALUES (1, 'Kaldırımlar', 'Necip Fazıl Kısakürek', 50);
+```
+
 ### UPDATE Komutu
 
 - **Amaç:** Mevcut verileri güncellemek için kullanılır.
@@ -64,7 +84,9 @@ SET sütun1 = değer1, sütun2 = değer2, ...
 WHERE koşul;
 ```
 **Örnek**
-`UPDATE kitaplar SET stok = stok - 1 WHERE kitap_id = 1;`
+```
+UPDATE kitaplar SET stok = stok - 1 WHERE kitap_id = 1;
+```
 ### DELETE Komutu
 
 - **Amaç:** Verileri silmek için kullanılır.
@@ -75,5 +97,7 @@ WHERE koşul;
 ```
 
 **Örnek**:
-`DELETE FROM uyeler WHERE uye_id = 5;`
+```
+DELETE FROM kitaplar WHERE kitap_id = 1;
+```
 
