@@ -1,5 +1,5 @@
 ## 3. Veritabanı Türleri
-![[hafta1/img3.png]]
+!(img3.png)[img3.png]
 ### İlişkisel Veritabanları (Relational Databases)
 
 **Tanım**

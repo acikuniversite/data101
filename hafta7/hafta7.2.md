@@ -9,7 +9,7 @@
 Bağımsız değişkenler ile bağımlı değişken arasındaki doğrusal ilişkiyi modellemek.
 
 **Model Formülü:**
-![[./img4.png]]
+!(img4.png)[img4.png]
 ```
 from sklearn.linear_model import LinearRegression
 
@@ -31,7 +31,7 @@ y_pred = model.predict(X)
 İkili sınıflandırma problemlerinde kullanılır (örneğin, hastalık var/yok).
 
 **Model Formülü:**
-![[./img5.png]]
+!(img5.png)[img5.png]
 ```
 from sklearn.linear_model import LogisticRegression
 
@@ -74,7 +74,7 @@ rf_model.fit(X, y)
 
 #### **5.2.1. K-Means Kümeleme**
 
-![[./img1.png]]
+!(img1.png)[img1.png]
 **Amaç:**
 
 Verileri benzer özelliklere sahip kümelere ayırmak.
@@ -101,7 +101,7 @@ df['kume'] = kmeans.labels_
 
 #### **5.2.2. Ana Bileşen Analizi (PCA)**
 
-![[./img2.png]]
+!(img2.png)[img2.png]
 
 **Amaç:**
 Yüksek boyutlu verileri daha düşük boyutlara indirgemek.
@@ -129,7 +129,7 @@ X_pca = pca.fit_transform(X)
 - **Hatırlama (Recall):** Doğru pozitiflerin gerçek pozitiflere oranı.
 - **F1 Skoru:** Kesinlik ve hatırlamanın harmonik ortalaması.
 
-![[./img6.png]]
+!(img6.png)[img6.png]
 
 **Python Örnek Kodu:**
 ```
@@ -157,7 +157,7 @@ Veri setini eğitim ve test setlerine bölerken, modelin genelleme kabiliyetini 
 
 **K-Fold Çapraz Doğrulama:**
 
-![[./img3.png]]
+!(img3.png)[img3.png]
 
 Veri seti k adet alt sete bölünür. Model k kez eğitilir ve her seferinde farklı bir alt set test için kullanılır.
 
@@ -230,7 +230,7 @@ df.describe()
 sns.heatmap(df.corr(), annot=True)
 plt.show()
 ```
-![[img8.png]]
+!(img8.png)[img8.png]
 #### Adım 5: Modelleme
 
  **Özellik ve hedef değişkenlerin belirlenmesi:**
@@ -278,7 +278,7 @@ plt.show()
 
 #### Çıktı:
 
-![[img7.png]]
+!(img7.png)[img7.png]
 
 - 492 örnek doğru tahmin edilmiş (kredi onayı almayanlar).  
 - 9498 örnek doğru tahmin edilmiş (kredi onayı alanlar).  
