@@ -1,34 +1,40 @@
-
 ## Hafta 7: Veri Bilimi ve İş Zekası (BI)
 ### **İçindekiler**
-
-1. Giriş
-2. Veri Bilimine Derinlemesine Bakış
+1. [Giriş](./hafta7.1.md)
+2. [Veri Bilimine Derinlemesine Bakış](./hafta7.1.md)
 	1. Veri Biliminin Tanımı ve Önemi
 	2. Veri Bilimcinin Rolü ve Sorumlulukları
-3. Veri Bilimi Süreci
-	1. Veri Ön İşleme ve Hazırlama
-	2. Eksik Verilerin İşlenmesi
-	3. Aykırı Değerlerin Tespiti ve İşlenmesi
-	4. Veri Normalizasyonu ve Standardizasyonu
-	5. Kategorik Verilerin Kodlanması
-4. Keşifsel Veri Analizi (EDA)
+	3. Veri Bilimi Süreci
+3. [Veri Ön İşleme ve Hazırlama](./hafta7.1.md)
+	1. Eksik Verilerin İşlenmesi
+	2. Aykırı Değerlerin Tespiti ve İşlenmesi
+	3. Veri Normalizasyonu ve Standardizasyonu
+	4. Kategorik Verilerin Kodlanması
+4. [Keşifsel Veri Analizi (EDA)](./hafta7.1.md)
 	1. Tanımlayıcı İstatistikler
 	2. Veri Görselleştirme Teknikleri
 	3. Korelasyon Analizi
-5. Makine Öğrenmesi Algoritmaları
+5. [Makine Öğrenmesi Algoritmaları](./hafta7.2.md)
 	1. Denetimli Öğrenme
-	2. Lineer Regresyon
-	3. Lojistik Regresyon
-	4. Karar Ağaçları ve Rastgele Ormanlar
-6. 5.2. Denetimsiz Öğrenme
-
-#### **5.2.1. K-Means Kümeleme
-
-#### **5.2.2. Ana Bileşen Analizi (PCA)**
-
-## **6. Model Değerlendirme ve Doğrulama
-
-### **6.1. Model Performans Metrikleri
-### **6.2. Çapraz Doğrulama ve Hiperparametre Optimizasyonu
-## **7. Uygulama: Python ile Makine Öğrenmesi Projes
+	2. Denetimsiz Öğrenme
+6. [Model Değerlendirme ve Doğrulama](./hafta7.2.md)
+	1. Model Performans Metrikleri
+	2. Çapraz Doğrulama ve Hiperparametre Optimizasyonu
+7. [Uygulama: Python ile Makine Öğrenmesi Projesi](./hafta7.2.md)
+	1. Proje Tanıtımı
+	2. Adım Adım Uygulama
+8. [Veri Analitiği](./hafta7.3.md)
+	1. Veri Analitiğine Giriş
+	2. Veri Analitiği Türleri
+	3. Veri Analitiği Araçları ve Teknolojileri
+	4. Veri Analitiği Uygulamaları ve Örnek Vakalar
+9. [İş Zekası (BI)](./hafta7.3.md)
+	1. İş Zekasının Tanımı ve Önemi
+	2. BI Sistemlerinin Bileşenleri
+	3. İş Zekası Araçları ve Platformları
+	4. Kurumsal Karar Verme Sürecinde BI’nin Rolü
+10. [BI’da Veri Görselleştirme ve Raporlama](./hafta7.3.md)
+	1. Veri Görselleştirmenin Önemi
+	2. Dashboard Tasarımı ve Uygulamaları
+	3. Etkileşimli Raporlama Teknikleri
+	4. BI’da En İyi Uygulamalar ve Zorluklar

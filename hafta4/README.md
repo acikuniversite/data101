@@ -23,8 +23,4 @@
 		- Bileşik anahtarlar ve denormalizasyon
 		- Indexed lookup ve join deseni
 5. [**Workshop:**](./hafta4.5.md)
-	- **Senaryo:** Bir sosyal medya uygulaması, kullanıcı profillerini ve gönderilerini depolamak istiyor.
-	- **Görev:**
-		- MongoDB gibi bir belge tabanlı NoSQL veritabanı kullanarak kullanıcı profilleri ve gönderiler için koleksiyonlar oluşturun.
-		- Temel CRUD (Oluşturma, Okuma, Güncelleme, Silme) işlemlerini gerçekleştirin.
-		- Kullanıcıların gönderilerini sorgulamak için örnek sorgular yazın.
+	- **Senaryo:** Bir sosyal medya uygulaması, kullanıcı profillerini ve gönderilerini depolamak istiyor. Uygulama, kullanıcıların profillerini, arkadaşlarını ve paylaştıkları gönderileri takip etmeyi amaçlıyor.

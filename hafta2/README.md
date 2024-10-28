@@ -22,8 +22,4 @@
 	- Kısıtlamalar ve Veri Bütünlüğü
 	- Kullanıcı Tanımlı Fonksiyonlar
 - **[Workshop](./hafta2.4.md):**
-	- **Senaryo:** Bir kütüphane, kitap ve üye kayıtlarını dijitalleştirmek istiyor.
-	- **Görev:** 
-		- Bir ilişkisel veritabanı oluşturun ve “Kitaplar” ve “Üyeler” tablolarını tasarlayın.
-		- SQL kullanarak tabloları oluşturun, verileri ekleyin ve güncelleyin.
-		- Belirli üyelerin ödünç aldığı kitapları listeleyen sorgular yazın.
+	- **Senaryo:** Bir kütüphane, kitap ve üye kayıtlarını dijital bir veritabanında yönetmek istiyor. Üyeler kitap ödünç alabiliyor ve bu işlemlerin takip edilmesi gerekiyor. Kütüphane yönetimi sizden veritabanını oluşturmanızı ve SQL komutlarıyla bu işlemleri yönetmenizi istiyor.

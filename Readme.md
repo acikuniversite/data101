@@ -11,99 +11,45 @@ Ders boyunca, öğrencilerin bu konulara dair önemli kavramları kavramaların�
 
 ## Ders Programı
 
-**Hafta 1: Veri Temelleri ve Veritabanı Kavramları**
-[Ders Notu](hafta1/README.md)
+### **Hafta 1: Veri Temelleri ve Veritabanı Kavramları**
+[Ders Notu](./hafta1/README.md)
 - **Konu Başlıkları:**
-	- **Veri ve Bilgi Arasındaki Fark**
-	    - Veri (Data)
-	    - Bilgi (Information)
-	    - Veri ve Bilgi Arasındaki İlişki
-	- **Veritabanı Nedir ve Neden Önemlidir?**
-	    - Veritabanı (Database)
-	    - Veritabanının Önemi
-	    - Veritabanı Yönetim Sistemi (DBMS)
-	- **Veritabanı Türleri**
-	    - İlişkisel Veritabanları (Relational Databases)
-	    - İlişkisel Olmayan Veritabanları (NoSQL Databases)
+	- Veri ve Bilgi Arasındaki Fark
+	- Veritabanı Nedir ve Ne İşe yarar?
+	- Veritabanı Türleri
 - **Workshop:**
-	- **Senaryo:** Bir küçük işletme, müşteri ve ürün verilerini etkin bir şekilde yönetmek istiyor.
-	- **Görev:** Müşteri ve ürün bilgilerini içeren basit bir veri modeli oluşturun. İlişkisel ve NoSQL veritabanlarının bu senaryo için avantajlarını ve dezavantajlarını tartışın.
+	- **Senaryo:** Bir küçük işletme sahibi, müşteri bilgilerini ve satış verilerini daha etkin bir şekilde yönetmek istiyor. Şu ana kadar Excel'de tuttuğu ham veriler karmaşık hale gelmeye başladı ve anlamlı bilgi elde etmekte zorlanıyor. Bir veritabanı çözümü kurmak istiyor ve bu konuda sizden yardım istiyor.
 
 
-**Hafta 2: SQL ile İlişkisel Veritabanları**
-[Ders Notu](hafta2/README.md)
+-----
+### **Hafta 2: SQL ile İlişkisel Veritabanları**
+[Ders Notu](./hafta2/README.md)
 - **Konu Başlıkları:**
-	- **SQL’in Temelleri**
-	    - SQL Nedir?
-	    - SQL’in Tarihçesi
-	    - SQL Standartları
-	- **DDL ve DML Komutları**
-	    - Veri Tanımlama Dili (DDL)
-	    - Veri Manipülasyon Dili (DML)
-	- **Temel SQL Sorguları ve İşlemleri**
-	- **İleri SQL**
-	    - JOIN İşlemleri
-	    - Alt Sorgular (Subqueries)
-	    - Gruplama ve Toplulaştırma Fonksiyonları
-	    - Pencere Fonksiyonları
-	    - Görünümler (Views)
-	    - Saklı Yordamlar (Stored Procedures)
-	    - Tetikleyiciler (Triggers)
-	    - İşlemler (Transactions)
-	    - İndeksleme ve Performans Optimizasyonu
-	    - Kısıtlamalar ve Veri Bütünlüğü
-	    - Kullanıcı Tanımlı Fonksiyonlar
+	- SQL’in Temelleri
+	- DDL ve DML Komutları
+	- Temel SQL Sorguları ve İşlemleri
+	- İleri SQL
 - **Workshop:**
-	- **Senaryo:** Bir kütüphane, kitap ve üye kayıtlarını dijitalleştirmek istiyor.
-	- **Görev:** 
-		- Bir ilişkisel veritabanı oluşturun ve “Kitaplar” ve “Üyeler” tablolarını tasarlayın.
-		- SQL kullanarak tabloları oluşturun, verileri ekleyin ve güncelleyin.
-		- Belirli üyelerin ödünç aldığı kitapları listeleyen sorgular yazın.
+	- **Senaryo:** Bir kütüphane, kitap ve üye kayıtlarını dijital bir veritabanında yönetmek istiyor. Üyeler kitap ödünç alabiliyor ve bu işlemlerin takip edilmesi gerekiyor. Kütüphane yönetimi sizden veritabanını oluşturmanızı ve SQL komutlarıyla bu işlemleri yönetmenizi istiyor.
+-----
 
-**Hafta 3: Veri Modelleme ve ER Diyagramları**
-[Ders Notu](hafta3/README.md)
+### **Hafta 3: Veri Modelleme ve ER Diyagramları**
+[Ders Notu](./hafta3/README.md)
 - **Konu Başlıkları:**
-	1. **Veri Modelleme Kavramları**
-		1. Veri Modellemenin Tanımı ve Önemi
-		2. Veri Modelleme Süreci
-	2. **ER (Varlık-İlişki) Diyagramları**
-		1. ER Diyagramlarının Temel Bileşenleri
-		2. Kardinalite ve İlişkiler
-	1. **SQL Tasarım Kuralları ve Normalizasyon**
-		1. Veritabanı Tasarım Kuralları
-		2. Normalizasyon
+	- Veri Modelleme Kavramları
+	- ER (Varlık-İlişki) Diyagramları
+	- SQL Tasarım Kuralları ve Normalizasyon
 - **Workshop:**
-	- **Senaryo:** Bir online alışveriş sitesi için veri modeli oluşturmak.
-	- **Görev:**
-	- Müşteriler, siparişler, ürünler ve ödemeleri içeren bir ER diyagramı çizin.
-	- Varlıklar arasındaki ilişkileri belirleyin ve kartisiteyi belirtin.
+	- **Senaryo:** Bir restoran zinciri, tüm müşteri siparişlerini, menü öğelerini ve çalışan bilgilerini merkezi bir sistemde toplamak istiyor. Bu sistem, müşterilerin verdikleri siparişlerin takip edilmesini, menüdeki yemeklerin stoklarının kontrol edilmesini ve çalışanların yönetimini sağlamalı. Şirket bu verilerin hepsini yönetmek için bir veritabanı tasarımı talep ediyor ve sizin grubunuzdan bu veritabanını modellemenizi istiyor.
+-----
 
-
-**Hafta 4: NoSQL Veritabanları**
-[Ders Notu](hafta4/README.md)
+### **Hafta 4: NoSQL Veritabanları**
+[Ders Notu](./hafta4/README.md)
 - **Konu Başlıkları:**
-	- **NoSQL Nedir ve Ne Zaman Kullanılır?**
-	    - NoSQL Nedir?
-	    - NoSQL Ne Zaman Kullanılır?
-	- **NoSQL Veritabanı Türleri**
-	    - Anahtar-Değer Depoları
-	    - Belge Tabanlı Veritabanları
-	    - Sütun-Ailesi Depoları
-	    - Grafik Veritabanları
-	- **NoSQL Tasarım Kuralları ve Optimizasyon**
-	    - Denormalizasyon
-	    - Veri Modelleme Yaklaşımları
-	- **İleri NoSQL**
-	    - İleri düzey sorgulama işlemleri
-	    - Agregasyon çerçevesi
-	    - İndeksleme stratejileri
-	    - Sharding ve replikasyon
-	    - Güvenlik ve yetkilendirme
-	    - Veri Modelleme En İyi Uygulamaları
-	        - Gömme ve referanslama
-	        - Şema tasarım desenleri (Öznitelik, Bucket, Referans, Polymorphic, Hybrid)
-	        - Bileşik anahtarlar ve denormalizasyon
-	        - Indexed lookup ve join deseni
+	- NoSQL Nedir ve Ne Zaman Kullanılır?
+	- NoSQL Veritabanı Türleri
+	- NoSQL Tasarım Kuralları ve Optimizasyon
+	- İleri NoSQL
 - **Workshop:**
 	- **Senaryo:** Bir sosyal medya uygulaması, kullanıcı profillerini ve gönderilerini depolamak istiyor.
 	- **Görev:**
@@ -111,110 +57,57 @@ Ders boyunca, öğrencilerin bu konulara dair önemli kavramları kavramaların�
 		- Temel CRUD (Oluşturma, Okuma, Güncelleme, Silme) işlemlerini gerçekleştirin.
 		- Kullanıcıların gönderilerini sorgulamak için örnek sorgular yazın.
 
-  
-  
 
-**Hafta 5: Veritabanı Tasarımı ve Mimari**
-[Ders Notu](hafta5/README.md)
+-----
+### **Hafta 5: Veritabanı Tasarımı ve Mimari**
+[Ders Notu](./hafta5/README.md)
 - **Konu Başlıkları:**
-	- **Gerçek Dünya Senaryoları Üzerinden Veritabanı Seçimi**
-	    - E-Ticaret Uygulaması
-	        - Ürün Kataloğu (NoSQL - MongoDB)
-	        - Sipariş ve Ödeme İşlemleri (SQL - PostgreSQL)
-	    - Sosyal Medya Uygulaması
-	        - Kullanıcı Profilleri ve İlişkileri (Grafik Veritabanı - Neo4j)
-	        - Gönderiler ve Mesajlaşma (NoSQL - MongoDB)
-	        - Finansal İşlemler ve Raporlama (SQL - MySQL)
-	    - IoT (Nesnelerin İnterneti) Uygulaması
-	        - Zaman Serisi Verileri (NoSQL - InfluxDB veya Cassandra)
-	        - Kullanıcı ve Cihaz Yönetimi (SQL - PostgreSQL)
-	- **Hibrit Yaklaşımın Uygulanması**
-	    - Veri Entegrasyonu ve Senkronizasyon
-	    - Performans ve Güvenlik İhtiyaçlarının Karşılanması
-	- **Hibrit Yaklaşımın Avantajları ve Dezavantajları**
-	- **Hibrit Yaklaşımın Zorlukları ve Çözümleri**
-	    - Veri Entegrasyonu
-	    - Yönetim Karmaşıklığı
-	    - Güvenlik
-	    - Maliyet
+	- Gerçek Dünya Senaryoları Üzerinden Veritabanı Seçimi
+	- Hibrit Yaklaşımın Uygulanması
+	- Hibrit Yaklaşımın Avantajları ve Dezavantajları
+	- Hibrit Yaklaşımın Uygulamadaki Örnekleri
+	- Hibrit Yaklaşımın Zorlukları ve Çözümleri
 - **Workshop:**
-- **Senaryo:** Bir finans kuruluşu, büyük miktarda işlem verisini hızlı ve güvenli bir şekilde işlemek istiyor.
-- **Görev:**
-	- Veritabanını normalizasyon kurallarına göre tasarlayın.
-	- Sorgu performansını artırmak için hangi alanlarda indeksleme yapacağınızı belirleyin.
-	- Veri güvenliği ve yedekleme stratejileri hakkında bir plan hazırlayın.
+	- **Senaryo:** Bir mobil ticaret oyunu geliştiriyorsunuz. Bu oyunda oyuncular, kaynakları alıp satabiliyor, üretim yapabiliyor ve dünya genelinde ticaret yapabiliyorlar. Ayrıca, şirketler kurabilir, pazarlara giriş yapabilir ve diğer oyuncularla ortaklıklar kurabilirler. Farklı veri türleri (ürün verileri, oyuncu finans bilgileri, ticaret işlemleri, stratejik ortaklıklar vb.) için en uygun veritabanı çözümünü belirlemeniz gerekiyor.
 
-  
-
-**Hafta 6: Veri Mühendisliği ve ETL Süreçleri**
-[Ders Notu](./hafta6)
+-----
+### **Hafta 6: Veri Mühendisliği ve ETL Süreçleri**
+[Ders Notu](./hafta6/README.md)
 - **Konu Başlıkları:**
-	- **Veri Mühendisliğine Giriş**
-	- **ETL ve ELT Süreçleri**
-	    - ETL ve ELT Nedir?
-	    - Extract (Çıkarma) Yöntemleri
-	    - Transform (Dönüştürme) Yöntemleri
-	    - Load (Yükleme) Yöntemleri
-	    - Güncel ETL/ELT Araçları ve Teknolojileri
-	- **Zamanlama ve Orkestrasyon Araçları ile N-1 Çalışmak**
-	    - Zamanlama ve Orkestrasyon Nedir?
-	    - N-1 Çalışmak Nedir?
-	    - Orkestrasyon Araçları
-	    - Teknik Detaylar ve Kullanım Örnekleri
-	- **Veri Entegrasyonu ve Veri Kalitesi Yönetimi**
-	    - Veri Entegrasyonu
-	    - Veri Kalitesi Yönetimi
-	    - Veri Kalitesi Araçları
-	- **Büyük Veri ve Büyük Veri Mühendisliği**
-	    - Büyük Veri Nedir?
-	    - Büyük Veri Teknolojileri
-	    - Büyük Veri Mühendisinin Rolü
-	    - Güncel Teknolojiler ve Trendler
-	- **Veri Ambarı ve Veri Gölü**
-	    - Veri Ambarı Nedir?
-	    - Veri Gölü Nedir?
-	    - Göl Evi (Lakehouse) Mimarisi
-	    - Teknolojiler ve Uygulamalar
-	- **Veri Güvenliği ve Uyum**
-	    - Veri Güvenliği Prensipleri
-	    - Yasal Düzenlemeler
-	    - Veri Anonimleştirme ve Maskelme Teknikleri
-	- **Sonuç ve Öneriler**
-	    - Veri Mühendisliği Kariyerine Başlamak İçin Öneriler
-	    - Öğrenilecek Teknolojiler ve Sertifikasyonlar
+	- Veri Mühendisliğine Giriş
+	- ETL ve ELT Süreçleri
+	- Zamanlama ve Orkestrasyon Araçları ile N-1 Çalışmak
+	- Veri Entegrasyonu ve Veri Kalitesi Yönetimi
+	- Büyük Veri ve Büyük Veri Mühendisliği
+	- Veri Ambarı ve Veri Gölü
+	- Veri Güvenliği ve Uyum
+	- Sonuç ve Öneriler
 - **Workshop:**
-	- **Senaryo:** Farklı kaynaklardan gelen satış verilerini bir veri ambarında toplamak isteyen bir şirket. 
-	- **Görev:**
-		- Basit bir ETL süreci tasarlayın ve uygulayın.
-		- Veri temizleme tekniklerini kullanarak verileri dönüştürün.
-		- Veri kalitesini değerlendirmek için metrikler belirleyin.
+	- **Senaryo:** Bir yazılım geliştirici topluluğu, Github üzerindeki trend projeleri ve konuları takip etmek istiyor. Amacınız, Github Trends sayfasından en popüler projelerin bilgilerini toplayarak, bu veriyi analiz etmeye uygun bir formata dönüştürmek ve veri ambarına yüklemek. Toplanan verilerdeki projelerin adı, yıldız sayısı, dil bilgisi ve açıklamaları gibi alanlar yer alıyor.
 
-  
-
-**Hafta 7: Veri Bilimi ve Analitiği**
-[Ders Notu](hafta7.md)
+---
+### **Hafta 7: Veri Bilimi ve Analitiği**
+[Ders Notu](./hafta7/README.md)
 - **Konu Başlıkları:**
-- Veri bilimine giriş
-- Temel istatistik ve veri görselleştirme
-- Makine öğrenmesine giriş
-- **Workshop:**
-- **Senaryo:** Bir e-ticaret şirketi, müşteri davranışlarını analiz etmek ve kişiselleştirilmiş öneriler sunmak istiyor.
-- **Görev:**
-	- Verilen müşteri ve alışveriş verilerini analiz edin.
-	- Veri görselleştirme araçları kullanarak bulgularınızı sunun.
-	- Basit bir makine öğrenmesi algoritmasıyla ürün önerileri oluşturun.
+	- Giriş
+	- Veri Bilimine Derinlemesine Bakış
+	- Veri Ön İşleme ve Hazırlama
+	- Keşifsel Veri Analizi (EDA
+	- Makine Öğrenmesi Algoritmaları
+	- Model Değerlendirme ve Doğrulama
+	- Uygulama: Python ile Makine Öğrenmesi Projesi
+	- Veri Analitiği
+	- İş Zekası (BI
+	- BI’da Veri Görselleştirme ve Raporlama
 
-  
-
-**Hafta 8: Bulut Teknolojileri ve Veri Yönetimi**
-[Ders Notu](./hafta8)
+----
+### **Hafta 8: Bulut Teknolojileri ve Veri Yönetimi**
+[Ders Notu](./hafta8/README.md)
 - **Konu Başlıkları:**
-	- Bulut bilişime giriş
-	- Bulutta veritabanı hizmetleri (AWS RDS, Azure SQL Database, Google Cloud SQL)
-	- Bulut ve yerel veritabanları arasındaki farklar
-- **Workshop:**
-- **Senaryo:** Bir startup, uygulamasını ölçeklendirmek için bulut tabanlı veritabanlarına geçmek istiyor.
-- **Görev:**
-	- AWS, Azure veya Google Cloud platformlarından birini kullanarak bir bulut veritabanı oluşturun.
-	- Veritabanınızı buluta taşımanın adımlarını planlayın.
-	- Bulutta veri güvenliği ve maliyet optimizasyonu stratejilerini tartışın.
+	- Giriş
+	- Bulut Bilişime Giriş
+	- Neden Bulut Teknolojileri
+	- Google Cloud Platform (GCP) ile Veri Yönetimi
+	- Amazon Web Services (AWS) ile Veri Yönetimi
+	- Şirketlerin Buluta Geçişi: Bir Örnek Olay İncelemesi
+	- Bulut Tabanlı Veri Yönetiminin En İyi Uygulamaları

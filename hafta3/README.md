@@ -11,7 +11,6 @@
 		2. Normalizasyon
 - [**Workshop:**](./hafta3.4.md)
 	- **Senaryo:** Bir restoran zinciri, tüm müşteri siparişlerini, menü öğelerini ve çalışan bilgilerini merkezi bir sistemde toplamak istiyor. Bu sistem, müşterilerin verdikleri siparişlerin takip edilmesini, menüdeki yemeklerin stoklarının kontrol edilmesini ve çalışanların yönetimini sağlamalı. Şirket bu verilerin hepsini yönetmek için bir veritabanı tasarımı talep ediyor ve sizin grubunuzdan bu veritabanını modellemenizi istiyor.
-
 ## Ek Kaynaklar
 
 ### Programlar

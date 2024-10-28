@@ -12,3 +12,4 @@
 	2. Dezavantajlar
 4. [Hibrit Yaklaşımın Uygulamadaki Örnekleri](./hafta5.2.md)
 5. [Hibrit Yaklaşımın Zorlukları ve Çözümleri](./hafta5.2.md)
+6. [Workshop :](./hafta5.3.md) Bir mobil ticaret oyunu geliştiriyorsunuz. Bu oyunda oyuncular, kaynakları alıp satabiliyor, üretim yapabiliyor ve dünya genelinde ticaret yapabiliyorlar. Ayrıca, şirketler kurabilir, pazarlara giriş yapabilir ve diğer oyuncularla ortaklıklar kurabilirler. Farklı veri türleri (ürün verileri, oyuncu finans bilgileri, ticaret işlemleri, stratejik ortaklıklar vb.) için en uygun veritabanı çözümünü belirlemeniz gerekiyor.
