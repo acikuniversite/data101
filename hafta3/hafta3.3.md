@@ -60,15 +60,21 @@ Normalizasyon süreci, veritabanının belirli normal formlara uygun olarak yap�
     - Verilerin atomik hale getirilmesi ve tekrarlanan veri gruplarının kaldırılması.
 - **Örnek:**
     - **Hatalı Tasarım:
-    !(img9.png)[img9.png]
+    
+![img9.png](img9.png)
+
     -  **Sorun:**
         - Bir müşterinin birden fazla telefon numarası olduğunda, ek sütunlar eklenerek veri tutulmuş.
         - Bu yaklaşım, yeni bir telefon numarası eklemek için tablo yapısının değiştirilmesini gerektirir.
 - **Doğru Tasarım:**
     - **Müşteri** tablosu:
-        !(img10.png)[img10.png]
+        
+![img10.png](img10.png)
+
     - **MüşteriTelefon** tablosu:
-        !(img11.png)[img11.png]
+        
+![img11.png](img11.png)
+
 -  **Açıklama:**    
     - Telefon numaraları ayrı bir tabloda tutulur ve her telefon numarası için ayrı bir satır oluşturulur.
     - Böylece, veriler atomik hale gelir ve 1NF sağlanır.
@@ -82,15 +88,21 @@ Normalizasyon süreci, veritabanının belirli normal formlara uygun olarak yap�
 - **Örnek:**
     - **Hatalı Tasarım:**
         **SiparişDetay** tablosu:
-        !(img12.png)[img12.png]
+        
+![img12.png](img12.png)
+
     - **Sorun:**
         - _ÜrünAdı_, sadece _ÜrünID_'ye bağımlıdır, ancak _SiparişID_ ile ilgisi yoktur.
         - Bu durum, kısmi bağımlılığa yol açar ve 2NF ihlal edilir.
     - **Doğru Tasarım:**
         - **SiparişDetay** tablosu:
-            !(img13.png)[img13.png]
+            
+![img13.png](img13.png)
+
         - **Ürünler** tablosu:
-            !(img14.png)[img14.png]
+            
+![img14.png](img14.png)
+
     - **Açıklama:**
         - _ÜrünAdı_, _ÜrünID_'ye tam bağımlı hale gelir ve ayrı bir tabloda tutulur.
         - Böylece, kısmi bağımlılıklar ortadan kalkar ve 2NF sağlanır.
@@ -103,15 +115,21 @@ Normalizasyon süreci, veritabanının belirli normal formlara uygun olarak yap�
 - **Örnek:**
     - **Hatalı Tasarım:**
         **Çalışan** tablosu:
-            !(img15.png)[img15.png]
+            
+![img15.png](img15.png)
+
     - **Sorun:**
         - _DepartmanAdı_, _DepartmanID_'ye bağımlıdır, ancak _DepartmanID_ de _ÇalışanID_'ye bağımlıdır.
         - Bu durum transitif bağımlılığa yol açar ve 3NF ihlal edilir.
     - **Doğru Tasarım:**
         - **Çalışan** tablosu:
-            !(img16.png)[img16.png]
+            
+![img16.png](img16.png)
+
         - **Departman** tablosu:
-            !(img17.png)[img17.png]
+            
+![img17.png](img17.png)
+
     - **Açıklama:** 
         - _DepartmanAdı_, _DepartmanID_'ye tam bağımlı hale gelir ve ayrı bir tabloda tutulur.
         - Transitif bağımlılıklar ortadan kalkar ve 3NF sağlanır.
@@ -125,15 +143,21 @@ Bazı durumlarda, veritabanını daha da optimize etmek için ileri düzey norma
 - **Örnek:**
     - **Hatalı Tasarım:**
         - **DersAtama** tablosu:    
-          !(img18.png)[img18.png]
+          
+![img18.png](img18.png)
+
     - **Sorun:**
         - _ÖğretmenAdı_, sadece _ÖğretmenID_'ye bağımlıdır, ancak _ÖğretmenID_ aday anahtar değildir.
         - Bu durum BCNF ihlaline yol açar.
     - **Doğru Tasarım:**
         - **DersAtama** tablosu:
-          !(img19.png)[img19.png]
+          
+![img19.png](img19.png)
+
         - **Öğretmen** tablosu:
-          !(img20.png)[img20.png]
+          
+![img20.png](img20.png)
+
       - **Açıklama:**
         - _ÖğretmenAdı_, _ÖğretmenID_'ye tam bağımlı hale gelir ve ayrı bir tabloda tutulur.
         - Tüm determinantlar aday anahtar olur ve BCNF sağlanır.
@@ -144,15 +168,21 @@ Bazı durumlarda, veritabanını daha da optimize etmek için ileri düzey norma
 - **Örnek:**
     - **Hatalı Tasarım:**
         - **SanatçıEser** tablosu:
-            !(img21.png)[img21.png]
+            
+![img21.png](img21.png)
+
     - **Sorun:**
         - _Sanatçı_ ile _Enstrüman_ ve _Sanatçı_ ile _Tür_ arasında bağımsız çok-değerli bağımlılıklar vardır.
         - Bu durum 4NF ihlaline yol açar.
     - **Doğru Tasarım:**
         - **SanatçıEnstrüman** tablosu:
-            !(img22.png)[img22.png]
+            
+![img22.png](img22.png)
+
         - **SanatçıTür** tablosu:
-            !(img23.png)[img23.png]
+            
+![img23.png](img23.png)
+
     - **Açıklama:**
         - Çok-değerli bağımlılıklar ayrı tablolarda tutulur.
         - 4NF sağlanır.

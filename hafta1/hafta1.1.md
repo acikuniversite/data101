@@ -5,7 +5,9 @@ Bu dersin amacı, her hafta işlenecek olan **SQL**, **NoSQL**, **veri bilimi**,
 Ders boyunca, öğrencilerin bu konulara dair önemli kavramları kavramalarını sağlamak, ayrıca kariyerlerinde ihtiyaç duyabilecekleri **yol haritalarını** daha net bir şekilde görebilmelerine yardımcı olmak temel amaçlarımızdandır.
 
 ## 1. Veri ve Bilgi Arasındaki Fark
-!(img2.png)[img2.png]
+
+![img2.png](img2.png)
+
 ## Giriş
 Veri yönetiminin kökeni, insanlık tarihinin çok eski dönemlerine dayanır. İşte veritabanlarına giden yolculuğun önemli durakları:
 - **M.Ö. 3500:** Mezopotamyalılar, bilgilerini kil tabletlerde tutmaya başladı.
@@ -20,7 +22,9 @@ Veri yönetiminin kökeni, insanlık tarihinin çok eski dönemlerine dayanır. 
 - **2010’lar:** Bulut tabanlı veritabanları, veri yönetiminde yeni bir dönem başlattı.
 
 ## Arthur Rimbaud:
-!(img4.png)[img4.png]
+
+![img4.png](img4.png)
+
 
 Arthur Rimbaud, genç yaşta olağanüstü şiirler yazarak edebiyat dünyasında derin izler bırakmış bir Fransız şairdir. Ancak 21 yaşına geldiğinde ani bir kararla şiir yazmayı tamamen bıra(kmıştır. 
 - **Edebi Dönemi:** Ham verileri (kelimeler ve imgeler) işleyerek derin ve anlamlı şiirler (bilgi) üretti.

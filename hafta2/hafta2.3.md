@@ -13,7 +13,9 @@
 ### 4.1 JOIN İşlemleri
 JOIN işlemleri, birden fazla tablodan veri çekmek ve bu verileri ilişkilerine göre birleştirmek için kullanılır.
 
-!(img1.png)[img1.png]
+
+![img1.png](img1.png)
+
 
 #### 4.1.1 INNER JOIN
 **Tanım:** Her iki tabloda da eşleşen kayıtları getirir.

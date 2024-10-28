@@ -44,13 +44,17 @@
     - **Tanım:** Bir varlığın bir diğer varlıkla sadece bir kez ilişki kurabildiği durumdur.
     - **Örnek:** Her çalışan, bir adet kimlik kartına sahip olabilir.
     - **Görsel:** İki varlık arasındaki ilişkiyi temsil eden çizginin her iki ucunda da "1" işareti bulunur.
-    !(img1.png)[img1.png]
+    
+![img1.png](img1.png)
+
    2. **Bire-Çok (1:M):**
     - **Tanım:** Bir varlığın birden fazla diğer varlıkla ilişki kurabildiği durumdur.
     - **Örnek:** Bir müşteri birçok sipariş verebilir.
     - **Görsel:** Bir varlık ile bir diğer varlık arasındaki ilişkiyi temsil eden çizginin bir ucunda "1", diğer ucunda "*" işareti bulunur.
 
-    !(img2.png)[img2.png]
+    
+![img2.png](img2.png)
+
 
 3. **Çok-Çok (M:M):**
     
@@ -58,7 +62,9 @@
     - **Örnek:** Bir öğrenci birçok derse kayıt olabilir ve bir ders birçok öğrenci tarafından alınabilir.
     - **Görsel:** İki varlık arasındaki ilişkiyi temsil eden çizginin her iki ucunda da "*" işareti bulunur.
 
-    !(img3.png)[img3.png]
+    
+![img3.png](img3.png)
+
 #### **2.2.2. İlişki Dereceleri**
 - **Tanım:** İlişkide yer alan varlıkların sayısını belirtir.
     - **İkili İlişkiler:** İki varlık arasında olan ilişkiler (örneğin, Müşteri ve Sipariş).
@@ -76,7 +82,9 @@ Zorunluluk, bir varlığın ilişkiye katılıp katılmaması gerektiğini belir
     - Her siparişin bir müşteriye ait olması gerektiği için sipariş tarafında "1" zorunluluk bulunur.
     - Bir müşterinin hiç siparişi olmaması da mümkündür, bu yüzden müşteri tarafında "0..*" zorunluluk bulunur.
 
-!(img4.png)[img4.png]
+
+![img4.png](img4.png)
+
 
 ### **2.3. ER Diyagramı Çizimi**
 ER diyagramları, veritabanı tasarımının görsel bir temsilidir. Aşağıda, ER diyagramı çizimi için temel adımlar ve örnek bir senaryo üzerinden nasıl çizileceği anlatılmaktadır.
@@ -145,12 +153,16 @@ ER diyagramları, veritabanı tasarımının görsel bir temsilidir. Aşağıda,
 #### **2.3.3. ER Diyagramı Örneği**
 Aşağıda, yukarıdaki senaryo için oluşturulmuş örnek bir ER diyagramı bulunmaktadır:
 
-!(img5.png)[img5.png]
+
+![img5.png](img5.png)
+
 
 - **Müşteri** tablosu, **Sipariş** tablosu ile bire-çok ilişki içerisindedir.
 - **Sipariş** ve **Ürün** tabloları arasında çok-çok ilişki bulunmaktadır ve bu ilişki **Sipariş_Urun** tablosu aracılığıyla yönetilmektedir.
 
-!(img6.png)[img6.png]
+
+![img6.png](img6.png)
+
 ### **2.4. ER Diyagramı Çizimi İçin İpuçları ve En İyi Uygulamalar**
 - **Net ve Tutarlı İsimlendirme:**
     - Varlık ve öznitelik isimlerini anlaşılır ve tutarlı şekilde adlandırın. Örneğin, "Müşteri" yerine "Customer", "Ad" yerine "FirstName".
@@ -180,7 +192,9 @@ Aşağıda, yukarıdaki senaryo için oluşturulmuş örnek bir ER diyagramı bu
 **Senaryo:** Bir hastane, hastaların randevularını, doktorlarını ve tedavi süreçlerini yönetmek istiyor. Her hastanın birden fazla randevusu olabilir ve her randevu bir doktora atanabilir.
 
 **ER Diyagramı:**
-!(img7.png)[img7.png]
+
+![img7.png](img7.png)
+
 
 **Açıklama:**
 - **Hasta** varlığı, **Randevu** varlığı ile bire-çok ilişkiye sahiptir.
@@ -256,7 +270,9 @@ ER diyagramları çizmek için birçok araç mevcuttur. Bu araçlar, veri modell
 ### **2.9. Örnek ER Diyagramı**
 Üye ve Ödünç Alma arasında bire-çok, Kitap ve Ödünç Alma arasında bire-çok, Kitap ve Yazar arasında çok-çok ilişki gösterilmektedir
   
-!(img8.png)[img8.png]
+
+![img8.png](img8.png)
+
 
 **Açıklama:**
 - **Üye** varlığı, **Ödünç Alma** varlığı ile bire-çok ilişkiye sahiptir. 
