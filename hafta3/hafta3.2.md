@@ -71,11 +71,32 @@
     - **Üçlü İlişkiler:** Üç varlık arasında olan ilişkiler (örneğin, Öğrenci, Ders ve Öğretmen).
 
 #### **2.2.3. Zorunluluğa Bağlı Kardinalite Gösterimi**
-Zorunluluk, bir varlığın ilişkiye katılıp katılmaması gerektiğini belirtir.
-- **1:** Tam olarak bir varlık.
-- **0..1:** Sıfır veya bir varlık.
-- **0..*:** Sıfır veya daha fazla varlık.
-- **1..*:** Bir veya daha fazla varlık.
+- **Temel Kardinalite Türleri:**
+    - Bire-Bir (1:1): ||--||
+    - Bire-Çok (1:N): ||--o{
+    - Çoka-Çok (M:N): }o--o{
+- **Zorunluluk Durumlarına Göre:**
+    - Zorunlu: || (çift çizgi)
+    - İsteğe Bağlı: |o (tek çizgi ve boş daire)
+- **Özel İlişki Türleri:**
+    - Kendi Kendine İlişki (Self Relationship)
+    - Çok Yönlü İlişkiler
+    - Türetilmiş İlişkiler
+- **Kardinalite Gösterim Sembolleri:**
+    - || : Zorunlu katılım
+    - |o : İsteğe bağlı katılım
+    - { : Çok (many)
+    - | : Bir (one)
+    - o : Sıfır veya bir/çok
+- **Örnekler ve Kullanım Alanları:**
+    - PERSONEL-PERSONEL_KARTI: Zorunlu bire-bir
+    - DEPARTMAN-CALISAN: Zorunlu bire-çok
+    - OGRENCI-DERS: İsteğe bağlı çoka-çok
+    - CALISAN2-CALISAN2: Kendi kendine ilişki (yönetici-çalışan)
+
+![img25.png](img25.png)
+
+![img26.png](img26.png)
 
 **Örnek Gösterim:**
 - **Müşteri ve Sipariş Arasındaki Zorunluluk:**
