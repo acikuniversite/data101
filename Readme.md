@@ -29,6 +29,7 @@ Ders boyunca, öğrencilerin bu konulara dair önemli kavramları kavramaların�
 	- İleri SQL
 - **Workshop:**
 	- Bir kütüphane, kitap ve üye kayıtlarını dijital bir veritabanında yönetmek istiyor. Üyeler kitap ödünç alabiliyor ve bu işlemlerin takip edilmesi gerekiyor. Kütüphane yönetimi sizden veritabanını oluşturmanızı ve SQL komutlarıyla bu işlemleri yönetmenizi istiyor.
+
 ### **Hafta 3: Veri Modelleme ve ER Diyagramları**
 [Ders Notu](./hafta3/README.md)
 - **Konu Başlıkları:**
@@ -37,6 +38,7 @@ Ders boyunca, öğrencilerin bu konulara dair önemli kavramları kavramaların�
 	- SQL Tasarım Kuralları ve Normalizasyon
 - **Workshop:**
 	- **Senaryo:** Bir restoran zinciri, tüm müşteri siparişlerini, menü öğelerini ve çalışan bilgilerini merkezi bir sistemde toplamak istiyor. Bu sistem, müşterilerin verdikleri siparişlerin takip edilmesini, menüdeki yemeklerin stoklarının kontrol edilmesini ve çalışanların yönetimini sağlamalı. Şirket bu verilerin hepsini yönetmek için bir veritabanı tasarımı talep ediyor ve sizin grubunuzdan bu veritabanını modellemenizi istiyor.
+
 ### **Hafta 4: NoSQL Veritabanları**
 [Ders Notu](./hafta4/README.md)
 - **Konu Başlıkları:**
@@ -62,7 +64,6 @@ Ders boyunca, öğrencilerin bu konulara dair önemli kavramları kavramaların�
 - **Workshop:**
 	- **Senaryo:** Bir mobil ticaret oyunu geliştiriyorsunuz. Bu oyunda oyuncular, kaynakları alıp satabiliyor, üretim yapabiliyor ve dünya genelinde ticaret yapabiliyorlar. Ayrıca, şirketler kurabilir, pazarlara giriş yapabilir ve diğer oyuncularla ortaklıklar kurabilirler. Farklı veri türleri (ürün verileri, oyuncu finans bilgileri, ticaret işlemleri, stratejik ortaklıklar vb.) için en uygun veritabanı çözümünü belirlemeniz gerekiyor.
 
------
 ### **Hafta 6: Veri Mühendisliği ve ETL Süreçleri**
 [Ders Notu](./hafta6/README.md)
 - **Konu Başlıkları:**
