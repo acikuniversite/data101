@@ -52,7 +52,7 @@ Arthur Rimbaud, genç yaşta olağanüstü şiirler yazarak edebiyat dünyasınd
 
 ### Veri ve Bilgi Arasındaki İlişki**
 - **Dönüşüm Süreci:**
-	1. **Veri Toplama:** Ham veriler toplanır. (Extract)
+	1. **Veri Toplama:** Ham veriler toplanır. (Extract) 
 	2. **Veri İşleme:** Veriler organize edilir ve analiz edilir. (Transform)
 	3. **Bilgi Elde Etme:** İşlenen veriler anlamlı bilgiye dönüşür. (Load)
 - **Önem:** Bilgi, verinin değerini ortaya çıkarır ve karar verme süreçlerini destekler.

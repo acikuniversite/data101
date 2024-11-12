@@ -71,6 +71,20 @@
     - **Üçlü İlişkiler:** Üç varlık arasında olan ilişkiler (örneğin, Öğrenci, Ders ve Öğretmen).
 
 #### **2.2.3. Zorunluluğa Bağlı Kardinalite Gösterimi**
+
+1. **Çizgi Türleri ve Anlamları**
+
+Öncelikle iki temel çizgi türünden başlayalım:
+
+- **Düz Çizgi (`--`)**: Bu çizgi, ilişkideki katılımın zorunlu olduğunu gösterir.
+- **Kesikli Çizgi (`..`)**: Bu çizgi, ilişkide katılımın isteğe bağlı olduğunu gösterir.
+
+Bu çizgilerin sonlarına eklenen semboller, katılımın zorunlu ya da isteğe bağlı olup olmadığını gösterir ve her iki varlık için ayrı ayrı uygulanabilir. Bir taraf zorunlu katılım gösterirken diğer taraf isteğe bağlı katılım gösterebilir.
+
+2. **Semboller ve Anlamları**
+- **`||`: Zorunlu katılım** – Varlığın bu ilişkiye katılması zorunludur.
+- **`|o`: İsteğe bağlı katılım** – Varlık, bu ilişkiye katılmak zorunda değildir; katılabilir veya katılmayabilir.
+
 - **Temel Kardinalite Türleri:**
     - Bire-Bir (1:1): ||--||
     - Bire-Çok (1:N): ||--o{
