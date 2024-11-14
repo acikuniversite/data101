@@ -22,11 +22,10 @@ JOIN işlemleri, birden fazla tablodan veri çekmek ve bu verileri ilişkilerine
 
 ```
 SELECT 
-    uyeler.isim, uyeler.soyisim, kitaplar.baslik
+    e.first_name, e.last_name, d.department_name
 FROM 
-    odunc
-INNER JOIN uyeler ON odunc.uye_id = uyeler.uye_id
-INNER JOIN kitaplar ON odunc.kitap_id = kitaplar.kitap_id;
+    employees e
+INNER JOIN departments d ON e.department_id = d.department_id;
 ```
 
 #### 4.1.2 LEFT JOIN
@@ -34,112 +33,169 @@ INNER JOIN kitaplar ON odunc.kitap_id = kitaplar.kitap_id;
 
 ```
 SELECT 
-    uyeler.isim, uyeler.soyisim, odunc.odunc_tarihi
+    e.first_name, e.last_name, e.hire_date
 FROM 
-    uyeler
-LEFT JOIN odunc ON uyeler.uye_id = odunc.uye_id;
+    employees e
+LEFT JOIN departments d ON e.department_id = d.department_id;
 ```
 
 #### 4.1.3 RIGHT JOIN
 **Tanım:** Sağ tabloda bulunan tüm kayıtları ve sol tabloda eşleşen kayıtları getirir.
 ```
 SELECT 
-    kitaplar.baslik, odunc.odunc_tarihi
+    d.department_name, e.hire_date
 FROM 
-    kitaplar
-RIGHT JOIN odunc ON kitaplar.kitap_id = odunc.kitap_id;
+    departments d
+RIGHT JOIN employees e ON d.department_id = e.department_id;
 ```
 #### 4.1.4 FULL OUTER JOIN
 **Tanım:** Her iki tablodaki tüm kayıtları getirir; eşleşme yoksa NULL değerler kullanılır.
 
 ```
 SELECT 
-    uyeler.isim, uyeler.soyisim, odunc.odunc_tarihi
+    e.first_name, e.last_name, e.hire_date
 FROM 
-    uyeler
-FULL OUTER JOIN odunc ON uyeler.uye_id = odunc.uye_id;
+    employees e
+FULL OUTER JOIN departments d ON e.department_id = d.department_id;
 ```
+
+
+#### 4.1.5 CROSS JOIN
+**Tanım:** İki tablo arasında kartezyen çarpım yapar.
+
+```
+SELECT 
+    e.first_name, d.department_name
+FROM
+    employees e
+CROSS JOIN departments d;
+```
+
+#### 4.1.6 SELF JOIN
+**Tanım:** Bir tablo içindeki farklı kayıtları birbiriyle karşılaştırmak için kullanılır.
+
+```
+SELECT 
+    e1.first_name AS employee_name, e2.first_name AS colleague_name
+FROM
+    employees e1
+JOIN employees e2 ON e1.manager_id = e2.employee_id;
+```
+
 
 ### 4.2 Alt Sorgular (Subqueries)
 Alt sorgular, bir sorgunun içinde başka bir sorgu çalıştırmak için kullanılır.
 
 #### 4.2.1 WHERE İçinde Alt Sorgu
 ```
-SELECT baslik, yazar
-FROM kitaplar
-WHERE kitap_id IN (
-    SELECT kitap_id
-    FROM odunc
-    WHERE uye_id = 1
+SELECT first_name, last_name
+FROM employees
+WHERE department_id IN (
+    SELECT department_id
+    FROM departments
+    WHERE location = 'İstanbul'
 );
 ```
 
 #### 4.2.2 FROM İçinde Alt Sorgu
 ```
-SELECT avg_satis
+SELECT avg_salary
 FROM (
-    SELECT AVG(satis_sayisi) AS avg_satis
-    FROM kitap_satislari
-) AS ortalama_satis;
+    SELECT AVG(salary) AS avg_salary
+    FROM employees
+) AS department_avg_salary;
+```
+
+#### 4.2.3 JOIN İçinde Alt Sorgu
+```
+SELECT first_name, last_name,
+       d.title AS department,
+       concat(e.salary::text, ' TL') AS employee_salary,
+       CONCAT((ROUND(department_avg_salary.avg_salary) )::text, ' TL')AS department_avg_salary,
+       CONCAT((round(department_avg_salary.avg_salary) - e.salary )::text, ' TL') AS salary_diff
+FROM employees e
+         INNER JOIN public.department d ON d.id = e.department_id
+         INNER JOIN (
+    SELECT department_id, AVG(salary) AS avg_salary
+    FROM employees
+    GROUP BY department_id
+) AS department_avg_salary ON department_avg_salary.department_id = e.department_id
+WHERE e.salary < (department_avg_salary.avg_salary * 0.3) order by salary_diff asc;
 ```
 
 ### 4.3 Gruplama ve Toplulaştırma Fonksiyonları
 Gruplama ve toplulaştırma fonksiyonları, verileri belirli kriterlere göre gruplandırmak ve bu gruplar üzerinde hesaplamalar yapmak için kullanılır.
+
 #### 4.3.1 Toplulaştırma Fonksiyonları
 -	**COUNT()**: Kayıt sayısını verir. 
 -	**SUM()**: Toplam değeri verir.
 -	**AVG()**: Ortalama değeri verir.
 -	**MAX(), MIN()**: Maksimum ve minimum değerleri verir.
 #### 4.3.2 GROUP BY
-
+GROUP BY, sorgu sonuçlarını belirli bir sütuna göre gruplamak için kullanılır.
 ```
-SELECT yazar, COUNT(*) AS kitap_sayisi
-FROM kitaplar
-GROUP BY yazar
-HAVING COUNT(*) > 1;
+SELECT 
+    department,
+    COUNT(*) AS employee_count
+FROM
+    employees
+GROUP BY
+    department;
 ```
 #### 4.3.3 HAVING
-
+HAVING, GROUP BY ile birlikte kullanılarak gruplar üzerinde filtreleme yapmak için kullanılır.
 ```
-SELECT yazar, COUNT(*) AS kitap_sayisi
-FROM kitaplar
-GROUP BY yazar
-HAVING COUNT(*) > 1;
+SELECT
+    department_id,
+    AVG(salary) AS avg_salary
+FROM
+    employees
+GROUP BY
+    department_id
+HAVING AVG(salary) > 75000;
 ```
 ### 4.4 Pencere Fonksiyonları
 Pencere fonksiyonları, SQL sorgularında sonuç kümesi üzerinde bir dizi satırı dikkate alarak hesaplamalar yapmanıza olanak tanır. Bu fonksiyonlar, bir sonuç kümesinin bir bölümünde sıralama, gruplama ve diğer hesaplamalar yaparken her satıra özgü değerler döndürürler.
 
 ```
-SELECT 
-    uye_id,
-    odunc_tarihi,
-    SUM(adet) OVER (PARTITION BY uye_id ORDER BY odunc_tarihi) AS toplam_odunc
-FROM 
-    odunc;
+SELECT
+    first_name, last_name, d.title,
+    salary,
+    RANK() OVER (ORDER BY salary DESC) AS salary_rank
+FROM
+    employees
+    INNER JOIN public.department d ON d.id = employees.department_id;
 ```
 
 Bu sorgu, PostgreSQL'de **odunc** adlı tablodan her üyenin (**uye_id**) ödünç alma işlemlerini topluca analiz eden bir sorgudur. **SUM(adet) OVER (PARTITION BY uye_id ORDER BY odunc_tarihi)** ifadesi, her üyenin ödünç aldığı kitapların sayısını kümülatif olarak hesaplar.
 
 ### 4.5 Görünümler (Views)
 **View**, bir SQL sorgusunun sonuçlarını temsil eden sanal bir tablo gibidir. Fiziksel olarak veriler içermez, ancak sorgu çalıştırıldığında, arka planda tanımlı olan SQL sorgusu yürütülerek sonuçlar döndürülür.
+Yeni kayıtlar eklenirken, güncelleme yapılırken veya silme işlemi gerçekleştirilirken, view'lar otomatik olarak güncellenir ve sonuçlar gerçek zamanlı olarak yansıtılır.
 #### 4.5.1 Görünüm Oluşturma
 ```
-CREATE VIEW uye_odunc_gorunumu AS
-SELECT 
-    u.uye_id,
-    u.isim,
-    u.soyisim,
-    k.baslik,
-    o.odunc_tarihi
-FROM 
-    uyeler u
-JOIN odunc o ON u.uye_id = o.uye_id
-JOIN kitaplar k ON o.kitap_id = k.kitap_id;
+CREATE VIEW employee_not_assigned_department AS
+SELECT e.first_name, e.last_name, e.hire_date, e.department_id, e.last_updated_at, (current_date - e.last_updated_at) as not_assigned_days, e.notes
+FROM employees e
+WHERE e.department_id IS NULL;
 ```
 #### 4.5.2 Görünüm Kullanma
 ```
-SELECT * FROM uye_odunc_gorunumu WHERE uye_id = 1;
+select * from employee_not_assigned_department where extract(day from not_assigned_days) > 30;
 ```
+
+#### 4.5.3 Görünüm Güncelleme
+```
+CREATE OR REPLACE VIEW employee_not_assigned_department AS
+SELECT e.first_name, e.last_name, e.hire_date, e.department_id, e.last_updated_at, (current_date - e.last_updated_at) as not_assigned_days, e.notes
+FROM employees e
+WHERE e.department_id IS NULL;
+```
+#### 4.5.4 Görünüm Silme
+```
+DROP VIEW employee_not_assigned_department;
+```
+
 ### 4.6 Saklı Yordamlar (Stored Procedures)
 Saklı yordamlar, veritabanı üzerinde tekrarlayan görevleri otomatikleştirmek ve bir dizi SQL işlemini bir arada çalıştırmak için kullanılan fonksiyonlardır. PostgreSQL'de hem **Stored Procedures** (saklı yordamlar) hem de **Stored Functions** (saklı fonksiyonlar) bulunmaktadır, ancak aralarındaki temel fark şudur:
 
@@ -152,11 +208,13 @@ PostgreSQL 11 sürümünden itibaren **Stored Procedures** desteği eklenmiştir
 **Stored Procedure Oluşturma**
 PostgreSQL'de bir **Stored Procedure** şu şekilde oluşturulur:
 ```
-CREATE PROCEDURE procedure_adi(parametreler)
-LANGUAGE plpgsql
+CREATE PROCEDURE update_employee_salary(emp_id INT, increase_amount INT)
+    LANGUAGE plpgsql
 AS $$
 BEGIN
-    -- Yordamın içeriği (SQL komutları)
+    UPDATE employees
+    SET salary = salary + increase_amount
+    WHERE employee_id = emp_id;
 END;
 $$;
 ```
@@ -165,74 +223,104 @@ $$;
 Saklı yordamlar **CALL** komutu ile çağrılır:
 
 ```
-CALL procedure_adi(parametreler);
+CALL update_employee_salary(50001, 1000);
 ```
 
-**Örnek Stored Procedure**
-Aşağıda basit bir saklı yordam örneği verilmiştir. Bu örnekte, belirli bir kullanıcının maaşını güncelleyen bir yordam bulunmaktadır:
-
+#### 4.6.2 Saklı Yordam Silme
 ```
-CREATE PROCEDURE maas_guncelle(calisan_id INT, yeni_maas NUMERIC)
-LANGUAGE plpgsql
-AS $$
+DROP PROCEDURE update_employee_salary;
+```
+
+#### 4.6.3 Saklı Yordam'da Saklı Yordam Çağırma
+```
+CREATE OR REPLACE PROCEDURE create_new_department(department_name VARCHAR(200), employeeID INT, location VARCHAR)
+    LANGUAGE plpgsql
+AS
+$$
 BEGIN
-    UPDATE calisanlar
-    SET maas = yeni_maas
-    WHERE id = calisan_id;
-END;
-$$;
-```
+    -- Attempt to insert into department table
+    INSERT INTO department (title, location) VALUES (department_name, location);
 
-Bu yordam, bir çalışanın maaşını günceller. Çağırmak için: 
-```
-CALL maas_guncelle(1, 6000);
-```
+    -- Update employee's department
+    UPDATE employees
+    SET department_id = (SELECT id FROM department WHERE title = department_name)
+    WHERE employees.employee_id = employeeID;
 
-**Stored Procedure ile Transaction Yönetimi**
-Stored Procedure'lar, PostgreSQL'de doğrudan **transaction** yönetimi (başlatma, bitirme, geri alma) için kullanılabilirler. Örneğin:
-```
-CREATE PROCEDURE para_transferi(gonderen_id INT, alici_id INT, miktar NUMERIC)
-LANGUAGE plpgsql
-AS $$
-BEGIN
-    -- Transaction başlatma
-    BEGIN;
-    
-    -- Gönderici hesabından para çek
-    UPDATE hesaplar
-    SET bakiye = bakiye - miktar
-    WHERE id = gonderen_id;
+    -- Update manager_id to NULL for all employees managed by the given employee
+    UPDATE employees
+    SET manager_id = NULL
+    WHERE employees.manager_id = employeeID;
 
-    -- Alıcı hesabına para ekle
-    UPDATE hesaplar
-    SET bakiye = bakiye + miktar
-    WHERE id = alici_id;
-
-    -- Eğer işlem başarılıysa commit et
-    COMMIT;
-
+    -- Call to another procedure for updating employee salary
+    CALL update_employee_salary(employeeID, 10000);
 EXCEPTION
-    -- Herhangi bir hata olursa işlemi geri al
     WHEN OTHERS THEN
-        ROLLBACK;
+        RAISE NOTICE 'Error: %', SQLERRM;
+
+END;
+$$
+```
+
+**Stored Procedure Güncelleme**
+```
+CREATE OR REPLACE PROCEDURE update_employee_salary(emp_id INT, increase_amount INT)
+    LANGUAGE plpgsql
+AS $$
+BEGIN
+	UPDATE employees
+	SET salary = salary + (increase_amount * 0.72),
+	bonus = bonus + (increase_amount * 0.28)
+	WHERE employee_id = emp_id;
 END;
 $$;
 ```
-Bu yordam, iki hesap arasında para transferi yaparken herhangi bir hata oluşursa işlemi geri alır.
+
+**Stored Function Oluşturma**
+```
+CREATE OR REPLACE FUNCTION get_employee_salary(emp_id INT)
+	RETURNS INT
+	LANGUAGE plpgsql
+AS $$
+BEGIN
+	RETURN (SELECT salary FROM employees WHERE employee_id = emp_id);
+END;
+$$;
+```
+
+**Stored Function Kullanımı**
+```
+SELECT get_employee_salary(50001);
+```
+
+**Stored Function Silme**
+```
+DROP FUNCTION get_employee_salary;
+```
+
+**Stored Procedure ve Function Arasındaki Farklar**
+
+| **Stored Procedure** | **Stored Function** |
+|----------------------|---------------------|
+| Geriye değer döndürmez | Geriye değer döndürür |
+| Transaction yönetimi yapılabilir | Transaction yönetimi yapılamaz |
+| Daha esnek ve geniş kapsamlıdır | Daha spesifik ve sınırlıdır |
+| Genellikle iş süreçlerini yönetmek için kullanılır | Dönüş değeri hesaplamak için uygundur |
+| **Örnek:** `CALL update_employee_salary(50001, 1000);` | **Örnek:** `SELECT get_employee_salary(50001);` |
 
 **Stored Procedure Avantajları:**
 1. **Performans**: Sorgular derlenir ve saklanır, bu da tekrarlayan görevler için daha hızlı performans sağlar.
 2. **Yeniden Kullanılabilirlik**: Aynı işlemleri tekrar tekrar yazmadan kullanabilirsiniz.
 3. **Güvenlik**: Veritabanına erişim seviyesini sınırlayabilir ve kullanıcılara doğrudan tablo erişimi yerine sadece saklı yordamlar üzerinden işlem yapmalarına izin verebilirsiniz.
 4. **Transaction Yönetimi**: Birden çok SQL ifadesini tek bir işlemde birleştirerek veritabanı bütünlüğünü korumak daha kolaydır.
- 
- **Stored** Procedures ile Functions Arasındaki Farklar
-1. **Procedures** geri dönüş değeri döndürmez, ancak **fonksiyonlar** döner.
-2. **Procedures** transaction yönetimi için kullanılabilir, ancak **fonksiyonlar** transaction yönetimini içeremez.
-3. **Procedures** daha esnek ve geniş kapsamlıdır, genellikle iş süreçlerini yönetmek için kullanılır. **Fonksiyonlar** daha çok dönüş değeri hesaplamak için uygundur.
+
+**Stored Function Avantajları:**
+1. **Dönüş Değeri**: Geriye bir değer döndürdüğü için, hesaplamaları ve işlemleri daha kolay yönetebilirsiniz.
+2. **Modülerlik**: Dönüş değeri olan işlemleri diğer sorgularla birleştirerek daha karmaşık işlemler yapabilirsiniz.
+3. **Performans**: Stored Functions, sorguları daha hızlı çalıştırabilir ve daha optimize edilmiş sonuçlar döndürebilir.
+4. **Güvenlik**: Veritabanına erişim seviyesini sınırlayabilir ve kullanıcılara doğrudan tablo erişimi yerine sadece saklı yordamlar üzerinden işlem yapmalarına izin verebilirsiniz.
+5. **Transaction Yönetimi**: Stored Functions, işlemleri gruplandırarak veritabanı bütünlüğünü korumak daha kolaydır.
 
 **Her Veritabanında Stored Procedures Var mı ?**
-
 PostgreSQL'deki **Stored Procedures (Saklı Yordamlar)**, diğer veritabanı sistemlerindeki **Stored Procedures** ile genelde aynı amacı taşır: bir dizi SQL komutunu bir araya getirip, tekrar kullanılabilir hale getirmek. Ancak her veritabanı sistemi farklı bir dil desteğine ve yapısal kurallara sahip olabilir. Farklı sistemlerdeki saklı yordamlar bazı noktalarda birbirine benzese de, yazım kuralları, kullanılan diller ve işlem yönetimi gibi konularda farklılıklar gösterebilir.
 
 ### 4.7 Tetikleyiciler (Triggers)
@@ -240,39 +328,116 @@ Tetikleyiciler, belirli veritabanı olayları gerçekleştiğinde otomatik olara
 
 #### 4.7.1 Tetikleyici Oluşturma
 ```
-CREATE TRIGGER stok_azalt
-AFTER INSERT ON odunc
-FOR EACH ROW
+CREATE OR REPLACE FUNCTION insert_salary_data_to_history()
+    RETURNS TRIGGER AS $$
 BEGIN
-    UPDATE kitaplar
-    SET stok = stok - 1
-    WHERE kitap_id = NEW.kitap_id;
+    INSERT INTO salary_history (employee_id, old_salary, new_salary, created_at)
+    VALUES (OLD.employee_id, OLD.salary, NEW.salary, current_date);
+    RETURN NEW;
 END;
+$$ LANGUAGE plpgsql
+
+
+CREATE TRIGGER salary_history_trigger
+    BEFORE UPDATE ON employees
+    FOR EACH ROW
+    WHEN (OLD.salary IS DISTINCT FROM NEW.salary)  -- Sadece maaş değiştiğinde tetiklenir
+EXECUTE FUNCTION insert_salary_data_to_history();
 ```
 #### 4.7.2 Tetikleyicinin İşleyişi
 - **Olay:** odunc tablosuna yeni bir kayıt eklendiğinde.
 - **Eylem:** İlgili kitabın stok değeri 1 azaltılır.
+
+```
+CREATE OR REPLACE FUNCTION decrease_book_stock()
+	RETURNS TRIGGER AS $$
+BEGIN
+	UPDATE kitaplar
+	SET stok = stok - 1
+	WHERE kitap_id = NEW.kitap_id;
+	RETURN NEW;
+END;
+
+CREATE TRIGGER decrease_book_stock_trigger
+	AFTER INSERT ON odunc
+	FOR EACH ROW
+	WHEN (NEW.kitap_id IS NOT NULL)
+EXECUTE FUNCTION decrease_book_stock();
+```
 ### 4.8 İşlemler (Transactions)
 İşlemler, bir dizi veritabanı işleminin tek bir birim olarak ele alınmasını sağlar.
 #### 4.8.1 İşlem Başlatma ve Bitirme
 ```
-START TRANSACTION;
+-- employee 6 budget should be increased by 1000
+UPDATE employees SET budget = budget + 5000 WHERE employee_id = 6;
 
--- İşlemler
-UPDATE hesaplar SET bakiye = bakiye - 100 WHERE hesap_id = 1;
-UPDATE hesaplar SET bakiye = bakiye + 100 WHERE hesap_id = 2;
+-- employee 5 budget should be decreased by 1000
+UPDATE employees SET budget = budget - 5000 WHERE employee_id = 5;
+```
+eğer employee 6 işlemi başarılı olurken employee 5 işlemi başarısız olursa, ödeme işlemi yapılmış ama para çekme işlemi yapılmamış olacaktır. Bu durumda işlemleri birleştirerek işlemi başlatıp bitirmek daha mantıklı olacaktır.
 
+```
+BEGIN;
+UPDATE employees SET budget = budget + 5000 WHERE employee_id = 6;
+UPDATE employees SET budget = budget - 5000 WHERE employee_id = 5;
 COMMIT;
+
+ROLLBACK;
 ```
 
 - **COMMIT:** İşlemleri kalıcı hale getirir.
 - **ROLLBACK:** İşlemleri geri alır.
+
 ### 4.9 İndeksleme ve Performans Optimizasyonu
 İndeksler, veritabanı sorgularının performansını artırmak için kullanılır.
 #### 4.9.1 İndeks Oluşturma
+
+*** Basit İndeks Oluşturma***
+Basit indeks genellikle tek bir sütuna uygulanır ve sorguların bu sütuna hızlı erişimini sağlar.
 ```
 CREATE INDEX idx_kitap_baslik ON kitaplar(baslik);
 ```
+
+*** Unique Index Oluşturma***
+Unique indeks, bir sütunda/veya çoklu sütunlarda benzersiz değerlerin saklanmasını sağlar.
+```
+CREATE UNIQUE INDEX idx_salary_history_employee_id_created_at
+    ON salary_history (employee_id, created_at);
+```
+
+*** Partial Index Oluşturma***
+Partial indeks, belirli bir koşulu sağlayan verileri indekslemek için kullanılır.
+```
+SELECT
+    extract(day from hire_date) as day,
+    avg(salary) as avg_salary,
+    max(salary) as max_salary,
+    min(salary) as min_salary
+FROM employees
+GROUP BY day
+ORDER BY day;
+```
+şimdi ise partial index oluşturalım. (hire_date alanı null olmayan kayıtları indeksleyeceğiz ve buradaki day alanını indeksleyeceğiz.)
+```
+CREATE INDEX idx_employee_hire_date_as_day
+    ON employees (extract(day from hire_date))
+	WHERE hire_date IS NOT NULL;
+```	
+
+*** Multicolumn Index Oluşturma***
+Multicolumn indeks, birden fazla sütunu indekslemek için kullanılır.
+```
+CREATE INDEX idx_employee_first_name_last_name
+ON employees (first_name, last_name);
+```
+
+*** Functional Index Oluşturma***
+Functional indeks, sütun üzerinde bir işlem yaparak indeks oluşturmak için kullanılır.
+```
+CREATE INDEX idx_employee_full_name
+ON employees (CONCAT(first_name, ' ', last_name));
+```
+
 #### 4.9.2 İndekslerin Avantajları
 - Sorgu hızını artırır.
 - Veri erişimini optimize eder.
