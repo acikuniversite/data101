@@ -63,15 +63,16 @@ Bu ödevde, öğrencilerden bir **C2C (Customer-to-Customer)** yemek uygulaması
 
 ---
 
-## Saklı Yordamlar ve Fonksiyonlar
-1. Satıcının ortalama sipariş bazlı geliri
-2. Satıcının ortalama teslimat süresi
-3. Satıcının Memnun müşteri sayısı (bir iki ikinci defa sipariş verdiyse ve puanı düşmediyse memnun diyebiliriz)
-
+## Saklı Yordamlar ve Fonksiyonlar ve Triggerlar
+1. Satıcının ortalama sipariş bazlı geliri (SF)
+2. Satıcının ortalama teslimat süresi (SF)
+3. Satıcının Memnun müşteri sayısı (bir iki ikinci defa sipariş verdiyse ve puanı düşmediyse memnun diyebiliriz) (SF)
+4. Sipariş durumu güncellendiğinde sipariş geçmişine kaydetme. (TR)
+5. Sipariş Oluşturma (SP)
 ---
 
 ## View Örnekleri
-1. Sipariş durumu güncellendiğinde sipariş geçmişine kaydetme.
+1. Kategori bazlı günlük ortalama sipariş sayısı
 2. Kullanıcı&Kullanıcı bazlı toplam yaptığı sipariş sayısı, harcadığı tutar ve verdiği ortalama puanı gösteren view
 3. Belirli bir kategorideki en popüler yemeklerin listeleyen view.
 4. Sistemin kar marjının en çok hangi yönden olduğunu aylık gösteren tablo (ev hanımları, yemek firmaları, mağazalar)
