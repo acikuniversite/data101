@@ -5,7 +5,7 @@ Bu ödevde, öğrencilerden bir **C2C (Customer-to-Customer)** yemek uygulaması
 
 ---
 
-## Ödevin Kapsamı ve Beklentilerhttps://github.com/acikuniversite/data101/tree/main/hafta2
+## Ödevin Kapsamı ve Beklentiler
 ### Genel Gereksinimler
 1. **Veritabanı Tasarımı ve İlişkiler (50 puan)**:
    - Uygun tabloların tasarlanması ve doğru ilişkilerin kurulması.
