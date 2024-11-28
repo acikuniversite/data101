@@ -6,13 +6,13 @@ Veri modelleme, verilerin yapısını, ilişkilerini ve kısıtlamalarını beli
 
 **Veri Modellemenin Önemi:**
 - **Anlaşılabilirlik:**
-    - Karmaşık veri yapılarının görselleştirilmesini sağlayarak, tüm paydaşların veriyi kolayca anlamasına yardımcı olur.
+    - Karmaşık veri yapılarının **görselleştirilme**sini sağlayarak, tüm paydaşların veriyi kolayca anlamasına yardımcı olur.
 - **Tutarlılık:**
-    - Verilerin tutarlı ve bütünsel bir şekilde yönetilmesini sağlayarak, veri kalitesini artırır.
+    - Verilerin** tutarlı ve bütünsel bir şekilde yönetilmesi**ni sağlayarak, veri kalitesini artırır.
 - **İletişim:**
-    - Teknik ve teknik olmayan paydaşlar arasında ortak bir dil oluşturur, böylece proje gereksinimleri ve çözümleri daha etkili bir şekilde paylaşılabilir.
+    - Teknik ve teknik olmayan paydaşlar arasında **ortak bir dil** oluşturur, böylece proje gereksinimleri ve çözümleri daha etkili bir şekilde paylaşılabilir.
 - **Veritabanı Tasarımı:**
-    - Etkin ve optimize edilmiş veritabanı tasarımlarının temelini oluşturarak, performansı ve ölçeklenebilirliği artırır.
+    - **Etkin ve optimize edilmiş veritabanı** tasarımlarının temelini oluşturarak, performansı ve ölçeklenebilirliği artırır.
 
 ### **1.2. Veri Modelleme Süreci**
 Veri modelleme süreci, veri ambarlarının ve veritabanlarının oluşturulmasında temel bir adımdır. Bu süreç, genellikle dört ana aşamadan oluşur: Gereksinim Analizi, Kavramsal Modelleme, Mantıksal Modelleme ve Fiziksel Modelleme.
