@@ -8,65 +8,236 @@ Veri modelleme, verilerin yapısını, ilişkilerini ve kısıtlamalarını beli
 - **Anlaşılabilirlik:**
     - Karmaşık veri yapılarının **görselleştirilme**sini sağlayarak, tüm paydaşların veriyi kolayca anlamasına yardımcı olur.
 - **Tutarlılık:**
-    - Verilerin** tutarlı ve bütünsel bir şekilde yönetilmesi**ni sağlayarak, veri kalitesini artırır.
+    - Verilerin **tutarlı ve bütünsel bir şekilde yönetilmesi**ni sağlayarak, veri kalitesini artırır.
 - **İletişim:**
     - Teknik ve teknik olmayan paydaşlar arasında **ortak bir dil** oluşturur, böylece proje gereksinimleri ve çözümleri daha etkili bir şekilde paylaşılabilir.
 - **Veritabanı Tasarımı:**
     - **Etkin ve optimize edilmiş veritabanı** tasarımlarının temelini oluşturarak, performansı ve ölçeklenebilirliği artırır.
 
 ### **1.2. Veri Modelleme Süreci**
-Veri modelleme süreci, veri ambarlarının ve veritabanlarının oluşturulmasında temel bir adımdır. Bu süreç, genellikle dört ana aşamadan oluşur: Gereksinim Analizi, Kavramsal Modelleme, Mantıksal Modelleme ve Fiziksel Modelleme.
+Veri modelleme süreci, veri sistemlerinin etkin ve verimli bir şekilde tasarlanması için kritik öneme sahiptir. Süreç genellikle dört ana aşamadan oluşur: Gereksinim Analizi, Kavramsal Modelleme, Mantıksal Modelleme ve Fiziksel Modelleme.
 
 #### **1.2.1. Gereksinim Analizi**
-**Tanım:** Gereksinim analizi, veritabanının hangi iş ihtiyaçlarına cevap vereceğini belirlemek için yapılan ilk adımdır. Bu aşamada, işletmenin hangi tür verilere ihtiyaç duyduğu ve bu verilerin nasıl kullanılacağı detaylandırılır.
+**Tanım:** Gereksinim analizi, veri modelleme sürecinin ilk aşamasıdır ve iş gereksinimlerinin belirlenmesini içerir. Bu aşamada, veri ihtiyaçları, veri kaynakları ve iş gereksinimleri tanımlanır.
 
 **Adımlar:**
-- **Veri İhtiyaçlarının Belirlenmesi:**
-    - Müşteriler, ürünler, siparişler gibi temel veri öğelerinin tanımlanması.
-- **Veri Kaynaklarının Belirlenmesi:**
-    - Her veri parçasının nereden geldiğinin ve nasıl kullanılacağının belirlenmesi.
-- **İş Gereksinimlerinin Çıkarılması:**
-    - Her veri öğesinin iş süreçlerindeki rolünün ve gereksinimlerin tanımlanması.
+1. **İş Gereksinimlerinin Toplanması:**
+    - Paydaşlarla görüşmeler, toplantılar ve anketler yoluyla iş hedefleri ve ihtiyaçları belirlenir.
+2. **Veri Kaynaklarının Belirlenmesi:**
+    - Mevcut veri kaynakları, sistemler ve veri akışları analiz edilir.
+3. **Fonksiyonel Gereksinimlerin Tanımlanması:**
+    - Sistemin gerçekleştirmesi gereken işlemler ve fonksiyonlar detaylandırılır.
+4. **Veri Gereksinimlerinin Analizi:**
+    - Hangi verilerin toplanacağı, depolanacağı ve işleneceği belirlenir.
+5. **Kısıtlamaların ve Varsayımların Belirlenmesi:**
+    - Teknik, yasal ve operasyonel kısıtlamalar ile varsayımlar tanımlanır.
+6. **Dokümantasyon ve Onay:**
+    - Gereksinimler yazılı olarak dokümante edilir ve tüm paydaşların onayı alınır.
 
-**Örnek:** Bir e-ticaret sitesi için müşteri bilgileri (ad, soyad, e-posta), ürünler (isim, fiyat, stok durumu) ve siparişler (sipariş numarası, ürün, müşteri, tarih) yönetilmelidir.
-
+**Gerçek Hayat Örneği (C2C Taksi Uygulaması):**
+Bir C2C (müşteriden müşteriye) taksi uygulaması geliştirmek isteyen bir girişim, gereksinim analizi aşamasını gerçekleştirir:
+- **İş Gereksinimlerini Toplar:**
+    - Sürücüler ve yolcular gibi ana paydaşlarla görüşerek, uygulamanın hangi özelliklere sahip olması gerektiğini belirler.
+- **Veri Kaynaklarını Belirler:**
+    - Kullanıcı kayıtları, seyahat geçmişi, ödeme işlemleri ve değerlendirmeler gibi veri kaynaklarını tespit eder.
+- **Fonksiyonel Gereksinimleri Tanımlar:**
+    - Kullanıcı kaydı, sürücü ve yolcu eşleştirmesi, gerçek zamanlı konum takibi ve ödeme işlemleri gibi fonksiyonları belirler.
+- **Veri Gereksinimlerini Analiz Eder:**
+    - Kullanıcı bilgileri, araç detayları, seyahat kayıtları ve ödeme bilgilerinin toplanması gerektiğini saptar.
+- **Kısıtlamaları ve Varsayımları Belirler:**
+    - Veri güvenliği, gizlilik ve yerel ulaşım düzenlemeleri ile ilgili yasal kısıtlamaları göz önünde bulundurur.
+- **Dokümantasyon ve Onay Alır:**
+    - Tüm gereksinimleri ayrıntılı bir şekilde dokümante eder ve ilgili paydaşların onayını alır.
 #### **1.2.2. Kavramsal Modelleme**
-**Tanım:** Kavramsal modelleme, iş gereksinimlerine uygun şekilde veritabanının temel yapısını belirler. Bu aşamada, varlıklar (entity), ilişkiler (relationship) ve özellikler (attribute) tanımlanır.
+
+**Tanım:** Kavramsal modelleme, gereksinim analizinde belirlenen iş gereksinimlerini yüksek seviyede görselleştirir. Bu aşamada, veri yapıları ve ilişkileri soyut bir şekilde tanımlanır.
 
 **Adımlar:**
-- **Varlıkların Belirlenmesi:**
-    - Temel varlıklar olarak müşteri, ürün, sipariş gibi öğelerin tanımlanması.
-- **Özelliklerin Tanımlanması:**
-    - Her varlığın sahip olması gereken özelliklerin belirlenmesi (örneğin, müşteri: ad, soyad, e-posta).
-- **İlişkilerin Belirlenmesi:**
-    - Varlıklar arasındaki ilişkilerin tanımlanması (örneğin, bir müşteri birçok sipariş verebilir).
 
-**Örnek:**
-- **Varlıklar:** **Müşteri**, **Ürün**, **Sipariş**
-- **İlişkiler:**
-    - Bir müşteri birçok sipariş verebilir (1-N).
-    - Her sipariş birden fazla üründen oluşabilir (N-N).
+1. **Varlıkların Belirlenmesi:**
+    - Sistemdeki temel nesneler veya varlıklar (örneğin, Kullanıcı, Araç, Seyahat) tanımlanır.
+2. **İlişkilerin Tanımlanması:**
+    - Varlıklar arasındaki ilişkiler (örneğin, Kullanıcı yapar Seyahat) belirlenir.
+3. **Özniteliklerin Tanımlanması:**
+    - Her varlığın temel özellikleri veya öznitelikleri tanımlanır.
+4. **Kavramsal Modelin Oluşturulması:**
+    - Varlık-İlişki (ER) diyagramları gibi görsel araçlarla model oluşturulur.
+5. **Doğrulama ve Onay:**
+    - Model, iş paydaşları ile birlikte gözden geçirilir ve onaylanır.
+
+**Gerçek Hayat Örneği (C2C Taksi Uygulaması):**
+
+- **Varlıkların Belirlenmesi:**
+    - Kullanıcı (Sürücü ve Yolcu), Araç, Seyahat, Ödeme
+- **İlişkilerin Tanımlanması:**
+    - Kullanıcı **kullanır** Araç
+    - Kullanıcı **yapar** Seyahat
+    - Seyahat **içerir** Ödeme
+- **Özniteliklerin Tanımlanması:**
+    - **Kullanıcı:** KullanıcıID, İsim, Soyisim, TelefonNumarası, Rol (Sürücü/Yolcu)
+    - **Araç:** AraçID, PlakaNo, Marka, Model, Renk, KullanıcıID
+    - **Seyahat:** SeyahatID, BaşlangıçKonumu, BitişKonumu, BaşlamaZamanı, BitişZamanı, SürücüID, YolcuID
+    - **Ödeme:** ÖdemeID, SeyahatID, Tutar, ÖdemeYöntemi, ÖdemeZamanı
+- **Kavramsal Modelin Oluşturulması:**
+    - ER diyagramı çizilerek varlıklar ve ilişkileri görselleştirilir.
+- **Doğrulama ve Onay:**
+    - Model, geliştirici ekip ve paydaşlarla gözden geçirilerek doğrulanır.
 
 #### **1.2.3. Mantıksal Modelleme**
-**Tanım:** Mantıksal modelleme, kavramsal modelin detaylandırılarak mantıksal bir düzeye indirgenmesidir. Bu aşamada, veri türleri, anahtarlar ve kısıtlamalar gibi detaylar eklenir.
+
+**Tanım:** Mantıksal modelleme, kavramsal modelin daha teknik ve detaylı bir temsilidir. Bu aşamada, veritabanı türünden bağımsız olarak veri yapıları ve ilişkileri detaylandırılır.
 
 **Adımlar:**
+
+1. **Tabloların Oluşturulması:**
+    - Varlıklar, tablo olarak tanımlanır.
+2. **Alanların ve Veri Tiplerinin Belirlenmesi:**
+    - Her tablodaki alanlar ve bunların veri tipleri tanımlanır.
+3. **Anahtarların Belirlenmesi:**
+    - Birincil anahtarlar (PK) ve yabancı anahtarlar (FK) belirlenir.
+4. **İlişkilerin Detaylandırılması:**
+    - Tablolar arasındaki ilişkiler ve kardinaliteler netleştirilir.
+5. **Normalizasyon:**
+    - Veri tekrarı ve tutarsızlıkları önlemek için tablolar normalleştirilir.
+6. **İş Kurallarının Uygulanması:**
+    - Veri bütünlüğünü sağlamak için kısıtlamalar ve kurallar tanımlanır.
+7. **Mantıksal Modelin Dokümantasyonu:**
+    - Model detaylı bir şekilde dokümante edilir ve doğrulanır.
+
+**Gerçek Hayat Örneği (C2C Taksi Uygulaması):**
+
 - **Tabloların Oluşturulması:**
-    - Her varlık için tabloların belirlenmesi (örneğin, müşteri, ürün, sipariş tabloları).
-- **Alan Adlarının ve Veri Türlerinin Belirlenmesi:**
-    - Her tablonun alan adlarının ve veri türlerinin tanımlanması (örneğin, müşteri ismi için `VARCHAR`, müşteri numarası için `INT`).
+    - **Kullanıcılar**, **Araçlar**, **Seyahatler**, **Ödemeler**
+- **Alanların ve Veri Tiplerinin Belirlenmesi:**
+	- **Kullanıcılar**
+
+| Alan Adı        | Veri Tipi | Açıklama              |
+| --------------- | --------- | --------------------- |
+| KullanıcıID     | Integer   | PK                    |
+| İsim            | Varchar   | Kullanıcının adı      |
+| Soyisim         | Varchar   | Kullanıcının soyadı   |
+| TelefonNumarası | Varchar   | İletişim numarası     |
+| Rol             | Varchar   | 'Sürücü' veya 'Yolcu' |
+	- **Araçlar
+
+| Alan Adı    | Veri Tipi | Açıklama        |
+| ----------- | --------- | --------------- |
+| AraçID      | Integer   | PK              |
+| PlakaNo     | Varchar   | Araç plakası    |
+| Marka       | Varchar   | Araç markası    |
+| Model       | Varchar   | Araç modeli     |
+| Renk        | Varchar   | Araç rengi      |
+| KullanıcıID | Integer   | FK, Araç sahibi |
+
+- **Seyahatler**
+  
+| Alan Adı  | Veri Tipi | Açıklama |
+| --------- | --------- | -------- |
+|SeyahatID|Integer|PK|
+|BaşlangıçKonumu|Varchar|Adres veya koordinatlar|
+|BitişKonumu|Varchar|Adres veya koordinatlar|
+|BaşlamaZamanı|Datetime|Seyahatin başlangıcı|
+|BitişZamanı|Datetime|Seyahatin bitişi|
+|SürücüID|Integer|FK, Kullanıcılar tablosuna|
+|YolcuID|Integer|FK, Kullanıcılar tablosuna|
+
+- **Ödemeler**
+  
+| Alan Adı     | Veri Tipi | Açıklama                 |
+| ------------ | --------- | ------------------------ |
+| ÖdemeID      | Integer   | PK                       |
+| SeyahatID    | Integer   | FK, Seyahatler tablosuna |
+| Tutar        | Decimal   | Ödeme miktarı            |
+| ÖdemeYöntemi | Varchar   | Kredi kartı, nakit vs.   |
+| ÖdemeZamanı  | Datetime  | Ödemenin yapıldığı zaman |
+
+
+- **Yorumlar**
+
+| Alan Adı    | Veri Tipi | Açıklama        |
+| ----------- | --------- | --------------- |
+| YorumID      | Integer   | PK              |
+| SeyahatID      |Integer|FK, Seyahatler tablosuna|
+| MusteriID      |Integer|FK, Kullanıcı tablosuna|
+| Puan      |Integer|0-9 arasına puan ataması|
+| Yorum      |Varchar|255 Karakter Sınırlaması|
+
+- **Kuponlar, Kredi Kartları, Firmalar, Kullanıcı Tipleri, Ücretli Hizmetler,
+
 - **Anahtarların Belirlenmesi:**
-    - Birincil anahtarlar (PK) ve yabancı anahtarlar (FK) gibi ilişkisel anahtarların tanımlanması.
+    - **KullanıcıID**, **AraçID**, **SeyahatID**, **ÖdemeID** birincil anahtarlar.
+    - **KullanıcıID** (Araçlar tablosunda) ve **SürücüID**, **YolcuID**, **SeyahatID** yabancı anahtarlar.
+- **İlişkilerin Detaylandırılması:**
+    - **Kullanıcılar** ve **Araçlar** arasında bire çok ilişki.
+    - **Seyahatler** tablosu, **SürücüID** ve **YolcuID** ile **Kullanıcılar** tablosuna bağlanır.
+    - **Ödemeler** tablosu, **SeyahatID** ile **Seyahatler** tablosuna bağlanır.
+- **Normalizasyon:**
+    - Tablolar 3. normal forma uygun olarak düzenlenir.
+- **İş Kurallarının Uygulanması:**
+    - Örneğin, bir aracın sadece bir kullanıcıya ait olabileceği kısıtlaması.
+- **Mantıksal Modelin Dokümantasyonu:**
+    - Tüm tablolar, alanlar ve ilişkiler detaylı bir şekilde belgelenir.
+
 #### **1.2.4. Fiziksel Modelleme**
-**Tanım:** Fiziksel modelleme, mantıksal modelin fiziksel veritabanı yapısına dönüştürülmesi sürecidir. Bu aşamada, veritabanı performansı, indeksler ve veri saklama gibi detaylar ele alınır.
+**Tanım:** Fiziksel modelleme, mantıksal modelin belirli bir veritabanı yönetim sistemi (DBMS) üzerinde fiziksel olarak uygulanmasıdır. Bu aşamada, veri depolama yapıları ve performans optimizasyonları dikkate alınır.
 
 **Adımlar:**
-- **DBMS'ye Göre Optimizasyon:**
-    - Veritabanı yönetim sistemine (DBMS) göre modelin optimize edilmesi (örneğin, MySQL, PostgreSQL).
-- **Performans İçin İndekslerin Belirlenmesi:**
-    - Sorgu performansını artırmak için gerekli indekslerin eklenmesi (örneğin, sipariş tablosunda müşteriID ve tarih alanlarına indeks eklemek).
-- **Veritabanının Fiziksel Yapısının Optimize Edilmesi:**
-    - Disk alanı ve diğer donanım kaynakları açısından veritabanının yapılandırılması.
+1. **Veritabanı Platformunun Seçimi:**
+    - Örneğin, MySQL, PostgreSQL, Oracle gibi bir DBMS seçilir.
+2. **Fiziksel Tabloların Oluşturulması:**
+    - Mantıksal modeldeki tablolar, seçilen DBMS'e özgü özelliklerle tasarlanır.
+3. **Veri Tiplerinin Belirlenmesi:**
+    - DBMS'e özgü veri tipleri kullanılarak alanlar tanımlanır.
+4. **Indekslerin Oluşturulması:**
+    - Sorgu performansını artırmak için indeksler tanımlanır.
+5. **Güvenlik ve Erişim Kontrollerinin Ayarlanması:**
+    - Kullanıcı yetkilendirmeleri ve veri güvenliği için önlemler alınır.
+6. **Performans Optimizasyonları:**
+    - Partitioning, sharding gibi tekniklerle performans iyileştirmeleri yapılır.
+7. **Fiziksel Modelin Uygulanması ve Testi:**
+    - Veritabanı oluşturulur ve test verileri ile doğrulama yapılır.
+
+**Gerçek Hayat Örneği (C2C Taksi Uygulaması):**
+- **Veritabanı Platformunun Seçimi:**
+    - PostgreSQL seçilir.
+- **Fiziksel Tabloların Oluşturulması:**
+    - Tablolar, PostgreSQL'in özelliklerine göre tasarlanır.
+- **Veri Tiplerinin Belirlenmesi:**
+- **Kullanıcılar**
+```
+CREATE TABLE Kullanıcılar (
+    KullanıcıID SERIAL PRIMARY KEY,
+    İsim VARCHAR(50) NOT NULL,
+    Soyisim VARCHAR(50) NOT NULL,
+    TelefonNumarası VARCHAR(15) UNIQUE NOT NULL,
+    Rol VARCHAR(10) CHECK (Rol IN ('Sürücü', 'Yolcu')) NOT NULL
+);
+```
+
+- **Seyahatler**
+```
+CREATE TABLE Seyahatler (
+    SeyahatID SERIAL PRIMARY KEY,
+    BaşlangıçKonumu POINT NOT NULL,
+    BitişKonumu POINT NOT NULL,
+    BaşlamaZamanı TIMESTAMP NOT NULL,
+    BitişZamanı TIMESTAMP,
+    SürücüID INTEGER REFERENCES Kullanıcılar(KullanıcıID),
+    YolcuID INTEGER REFERENCES Kullanıcılar(KullanıcıID)
+);
+```
+- **Indekslerin Oluşturulması:**
+    - **TelefonNumarası** ve **PlakaNo** alanları üzerinde indeksler oluşturulur.
+    - **Seyahatler** tablosunda **SürücüID** ve **YolcuID** alanları için indeksler tanımlanır.
+- **Güvenlik ve Erişim Kontrollerinin Ayarlanması:**
+    - Kullanıcı rolleri ve yetkilendirmeler belirlenir.
+    - Hassas verilere erişim kısıtlanır.
+- **Performans Optimizasyonları:**
+    - Sık kullanılan sorgular için ek indeksler oluşturulur.
+    - Büyük tablolar için partitioning uygulanabilir.
+- **Fiziksel Modelin Uygulanması ve Testi:**
+    - Veritabanı sunucusunda tablolar oluşturulur.
+    - Test verileri yüklenerek sistemin düzgün çalışıp çalışmadığı kontrol edilir.
 ### **1.3. Veri Modelleme Araçları ve Teknolojileri**
 Veri modelleme sürecinde kullanılan çeşitli araçlar ve teknolojiler vardır. Bu araçlar, veri modellemenin her aşamasını kolaylaştırır ve veritabanı tasarımını daha verimli hale getirir.
 
@@ -218,40 +389,3 @@ CREATE INDEX idx_RandevuID ON Tedavi(RandevuID);
 ```
 
 **Sonuç:** Bu veri modeli, hastanenin hasta, doktor, randevu ve tedavi verilerini etkili bir şekilde yönetmesini sağlar. İlişkilerin doğru tanımlanması, veri bütünlüğünü ve erişim performansını artırır.
-
-### **1.5. Veri Modelleme En İyi Uygulamaları**
-Veri modelleme sürecinde, veri kalitesi ve veritabanının performansı açısından bazı en iyi uygulamalar bulunmaktadır:
-
-- **Net ve Tutarlı İsimlendirme:**
-    - Tablolar ve alanlar için anlamlı ve tutarlı isimler kullanın.
-- **Normalizasyon:**
-    - Veri tekrarını azaltmak ve veri bütünlüğünü sağlamak için uygun normalizasyon kurallarını uygulayın.
-- **İlişki Kurallarının Belirlenmesi:**
-    - Varlıklar arasındaki ilişkileri doğru şekilde tanımlayarak, veritabanının tutarlılığını sağlayın.
-- **Gereksiz Veri Tekrarından Kaçınma:**
-    - Aynı veriyi birden fazla tabloda saklamaktan kaçının.
-- **Dokümantasyon:**
-    - Veri modelini ve ilişkilerini detaylı bir şekilde dokümante edin.
-- **Performans Optimizasyonu:**
-    - Sık kullanılan sorgular için indeksler oluşturun ve veritabanını performans açısından optimize edin.
-- **Güvenlik ve Erişim Kontrolleri:**
-    - Veritabanı erişimlerini doğru şekilde yapılandırarak, veri güvenliğini sağlayın.
-
-### **1.6. Veri Modelleme Zorlukları ve Çözümleri**
-Veri modelleme süreci, bazı zorlukları da beraberinde getirebilir. Bu zorluklar ve olası çözümleri aşağıda belirtilmiştir:
-
-- **Veri Karmaşıklığı:**
-    - **Zorluk:** Karmaşık veri yapıları ve ilişkileri yönetmek zor olabilir.
-    - **Çözüm:** Basit ve anlaşılır modeller oluşturarak, karmaşıklığı azaltın. Gerekirse modüler veri modelleme tekniklerini kullanın.
-- **Değişen İş Gereksinimleri:**
-    - **Zorluk:** İş gereksinimleri zamanla değişebilir ve veri modeli bu değişikliklere uyum sağlamalıdır.
-    - **Çözüm:** Esnek ve ölçeklenebilir veri modelleri tasarlayın. Değişiklikleri kolayca entegre edebilecek şekilde modelinizi yapılandırın.
-- **Veri Tutarsızlığı:**
-    - **Zorluk:** Farklı kaynaklardan gelen verilerin tutarsız olması veri kalitesini düşürebilir.
-    - **Çözüm:** Veri temizleme ve entegrasyon süreçlerini güçlü bir şekilde uygulayın. Veri doğrulama kurallarını modele dahil edin.
-- **Performans Sorunları:**
-    - **Zorluk:** Büyük veri setlerinde sorgu performansı düşebilir.
-    - **Çözüm:** İndeksleme, önbellekleme ve uygun veri modelleme tekniklerini kullanarak performansı optimize edin.
-- **Dokümantasyon Eksikliği:**
-    - **Zorluk:** Veri modelinin yeterince dokümante edilmemesi, bakım ve geliştirme süreçlerini zorlaştırır.
-    - **Çözüm:** Veri modelini ve ilişkilerini detaylı bir şekilde dokümante edin. Otomatik dokümantasyon araçlarını kullanın.

@@ -1,38 +1,45 @@
 ## **2. ER (Varlık-İlişki) Diyagramları**
 ### **2.1. ER Diyagramlarının Temel Bileşenleri**
-**ER Diyagramları**, veritabanı tasarımının temel taşlarından biridir. Varlık-İlişki (Entity-Relationship) diyagramları, veritabanındaki varlıklar, bu varlıkların öznitelikleri ve varlıklar arasındaki ilişkileri görsel olarak temsil eder. Bu sayede, veritabanı yapısını daha iyi anlamak ve etkili bir şekilde tasarlamak mümkün olur.
+**ER Diyagramları**, veri modelleme sürecinin kritik bir parçasıdır. Varlık-İlişki (Entity-Relationship) diyagramları, veritabanındaki varlıkları, bu varlıkların özniteliklerini ve varlıklar arasındaki ilişkileri görsel olarak temsil eder. Bu sayede, veritabanı yapısını daha iyi anlamak ve etkili bir şekilde tasarlamak mümkün olur.
 
 #### **2.1.1. Varlıklar (Entities)**
 - **Tanım:**
     - Varlıklar, bağımsız olarak tanımlanabilen nesneler veya kavramlardır. Gerçek dünyadan alınmış, veritabanında depolanacak bilgi parçalarını temsil ederler.
 - **Özellikler:**
-    - **İsimlendirme:** Varlık isimleri genellikle tekil isimlerle ifade edilir (örneğin, Müşteri, Ürün, Sipariş).
-    - **Varlık Türleri:** Temel varlıklar (örneğin, Müşteri) ve zayıf varlıklar (örneğin, Sipariş_Detayı).
-- **Örnekler:**
-    - **Müşteri (Customer):** Bir e-ticaret sitesindeki müşterileri temsil eder.
-    - **Ürün (Product):** Satılan ürünleri temsil eder.
-    - **Sipariş (Order):** Müşterilerin verdikleri siparişleri temsil eder.
+    - **İsimlendirme:** Varlık isimleri genellikle tekil isimlerle ifade edilir (örneğin, Kullanıcı, Araç, Seyahat).
+    - **Varlık Türleri:** Temel varlıklar ve zayıf varlıklar.
+- **Örnekler (C2C Taksi Uygulaması):**
+    - **Kullanıcı (User):** Uygulamayı kullanan sürücü ve yolcuları temsil eder.
+    - **Araç (Vehicle):** Sürücülerin kullandığı araçları temsil eder.
+    - **Seyahat (Ride):** Gerçekleşen yolculukları temsil eder.
+    - **Ödeme (Payment):** Seyahatler için yapılan ödemeleri temsil eder.
 
 #### **2.1.2. Öznitelikler (Attributes)**
 - **Tanım:**
     - Öznitelikler, varlıkların sahip olduğu özelliklerdir. Her öznitelik, varlık hakkında belirli bir bilgiyi içerir.
 - **Özellikler:**
-    - **Basit ve Bileşik Öznitelikler:** Basit öznitelikler tek parça iken, bileşik öznitelikler birden fazla alt özniteliğe sahip olabilir (örneğin, Ad ve Soyad bileşik bir öznitelik oluşturabilir).
-    - **Tekrarlayan ve Çok Değerli Öznitelikler:** Bazı öznitelikler birden fazla değere sahip olabilir (örneğin, telefon numaraları).
-- **Örnekler:**
-    - **Müşteri Adı (Customer Name):** Müşterinin adını belirtir.
-    - **Ürün Fiyatı (Product Price):** Ürünün satış fiyatını belirtir.
-    - **Sipariş Tarihi (Order Date):** Siparişin verildiği tarihi belirtir.
+    - **Basit ve Bileşik Öznitelikler:** Basit öznitelikler tek parça iken, bileşik öznitelikler birden fazla alt özniteliğe sahip olabilir (örneğin, Ad ve Soyad).
+    - **Tekrarlayan ve Çok Değerli Öznitelikler:** Bazı öznitelikler birden fazla değere sahip olabilir (örneğin, bir kullanıcının birden fazla telefon numarası).
+- **Örnekler (C2C Taksi Uygulaması):**
+    - **Kullanıcı:**
+        - KullanıcıID, İsim, Soyisim, TelefonNumarası, Rol (Sürücü/Yolcu)
+    - **Araç:**
+        - AraçID, PlakaNo, Marka, Model, Renk, KullanıcıID
+    - **Seyahat:**
+        - SeyahatID, BaşlangıçKonumu, BitişKonumu, BaşlamaZamanı, BitişZamanı, SürücüID, YolcuID
+    - **Ödeme:**
+        - ÖdemeID, SeyahatID, Tutar, ÖdemeYöntemi, ÖdemeZamanı
 
 #### **2.1.3. İlişkiler (Relationships)**
 - **Tanım:**
     - İlişkiler, varlıklar arasındaki bağlantıları gösterir. Bu bağlantılar, varlıklar arasında nasıl bir etkileşim veya bağlantı olduğunu ifade eder.
 - **Özellikler:**
     - **İlişki Türleri:** Bir varlık ilişkisi diğerine birden fazla şekilde bağlayabilir (bire-bir, bire-çok, çok-çok).
-    - **Görsel Temsil:** İlişkiler genellikle çizgilerle bağlanmış ve ilişkilerin türünü belirtmek için etiketlenmiş olarak gösterilir.
-- **Örnekler:**
-    - **Müşteri Verir Sipariş (Customer Places Order):** Bir müşterinin bir veya daha fazla sipariş verebildiğini gösterir.
-    - **Sipariş İçerir Ürün (Order Contains Product):** Bir siparişin bir veya daha fazla ürünü içerebildiğini gösterir.
+    - **Görsel Temsil:** İlişkiler genellikle çizgilerle bağlanmış ve ilişkilerin türünü belirtmek için sembollerle gösterilir.
+- **Örnekler (C2C Taksi Uygulaması):**
+    - **Kullanıcı Kullanır Araç:** Bir sürücü bir veya daha fazla araca sahip olabilir.
+    - **Kullanıcı Yapar Seyahat:** Yolcu ve sürücü arasında gerçekleşen seyahatler.
+    - **Seyahat İçerir Ödeme:** Her seyahatin bir ödemesi olabilir.
 
 ---
 
@@ -40,277 +47,203 @@
 **Kardinalite**, varlıklar arasındaki ilişkinin sayısal doğasını belirtir. Bir ilişkideki kardinalite, bir varlığın diğer varlıkla kaç kez ilişki kurabileceğini ifade eder.
 
 #### **2.2.1. Kardinalite Türleri**
-1. **Bire-Bir (1:1):**
+1. **Bire-Bir (1:1):** (Düz Çizgi ile Gösterilir)
     - **Tanım:** Bir varlığın bir diğer varlıkla sadece bir kez ilişki kurabildiği durumdur.
-    - **Örnek:** Her çalışan, bir adet kimlik kartına sahip olabilir.
+    - **Örnek (C2C Taksi Uygulaması):** Her sürücünün tek bir ehliyet belgesi olabilir.
     - **Görsel:** İki varlık arasındaki ilişkiyi temsil eden çizginin her iki ucunda da "1" işareti bulunur.
-    
-![img1.png](img1.png)
-
-   2. **Bire-Çok (1:M):**
+2. **Bire-Çok (1:N):** (Bir Ucu Düz, Diğer Ucu Crowfoot(Kaz Ayakları) ile Gösterilir)
     - **Tanım:** Bir varlığın birden fazla diğer varlıkla ilişki kurabildiği durumdur.
-    - **Örnek:** Bir müşteri birçok sipariş verebilir.
-    - **Görsel:** Bir varlık ile bir diğer varlık arasındaki ilişkiyi temsil eden çizginin bir ucunda "1", diğer ucunda "*" işareti bulunur.
-
-    
-![img2.png](img2.png)
-
-
-3. **Çok-Çok (M:M):**
-    
+    - **Örnek:** Bir sürücünün birden fazla aracı olabilir.
+    - **Görsel:** Bir varlık ile bir diğer varlık arasındaki ilişkiyi temsil eden çizginin bir ucunda "1", diğer ucunda "N" veya "*" işareti bulunur.
+3. **Çok-Çok (M:N):** (Her İki Ucu Crowfoot(Kaz Ayakları) ile Gösterilir, lakin bu durum için pivot tablo gereklidir)
     - **Tanım:** Birden fazla varlığın birden fazla diğer varlıkla ilişki kurabildiği durumdur.
-    - **Örnek:** Bir öğrenci birçok derse kayıt olabilir ve bir ders birçok öğrenci tarafından alınabilir.
-    - **Görsel:** İki varlık arasındaki ilişkiyi temsil eden çizginin her iki ucunda da "*" işareti bulunur.
+    - **Örnek:** Bir yolcu birçok seyahat yapabilir ve bir seyahatte birden fazla yolcu olabilir (eğer uygulama paylaşım özellikli ise).
+    - **Görsel:** İki varlık arasındaki ilişkiyi temsil eden çizginin her iki ucunda da "N" veya "*" işareti bulunur.
 
-    
-![img3.png](img3.png)
-
-#### **2.2.2. İlişki Dereceleri**
+#### **2.2.2. İlişki Dereceleri** (ER Diagramda direkt olarak gösterilmez, fakat ilişkideki varlık sayısını belirtir)
 - **Tanım:** İlişkide yer alan varlıkların sayısını belirtir.
-    - **İkili İlişkiler:** İki varlık arasında olan ilişkiler (örneğin, Müşteri ve Sipariş).
-    - **Üçlü İlişkiler:** Üç varlık arasında olan ilişkiler (örneğin, Öğrenci, Ders ve Öğretmen).
+  -  **Unary (1):** Bir varlık kendi içinde (örneğin bir sosyal medya kullanıcısının kendi arkadaşlarıyla ilişkisi).
+  - **Binary (2):** İki varlık arasında (örneğin bir sürücünün bir araca sahip olması).
+  - **Ternary (3):** Üç varlık arasında (örneğin bir seyahatin bir sürücü ve bir yolcu tarafından gerçekleştirilmesi).
+  - **N-ary (N):** N varlık arasında (örneğin bir seyahatin bir sürücü, bir yolcu ve bir araç tarafından gerçekleştirilmesi).
 
 #### **2.2.3. Zorunluluğa Bağlı Kardinalite Gösterimi**
+**Zorunluluk**, bir varlığın diğer varlıkla ilişki kurmasının gerekliliğini ifade eder.
+- **Zorunlu Katılım (Mandatory Participation):** Solid Line (Düz Çizgi) ile Gösterilir
+    - Bu, zorunlu ilişkiyi (mandatory relationship) ifade eder. 
+    - Bir varlığın ilişkide yer almasının zorunlu olduğu durum.
+    - Ana varlık silindiğinde bağlı varlık da silinir.
+    - **Örnek:** Bir sürücünün bir araca sahip olması zorunludur. Sürücü silinirse araç da silinmelidir.
+- **İsteğe Bağlı Katılım (Optional Participation):** Dotted Line (Kesikli Çizgi) ile Gösterilir
+    - Bu, isteğe bağlı ilişkiyi (optional relationship) ifade eder.
+    - Bir varlığın ilişkide yer almasının isteğe bağlı olduğu durum.
+    - Ana varlık silindiğinde bağlı varlık silinmez.
+    - **Örnek:** Bir yolcunun bir seyahate katılması isteğe bağlıdır. Yolcu silinirse seyahat kaydı korunabilir.
 
-1. **Çizgi Türleri ve Anlamları**
+**Örnek (C2C Taksi Uygulaması):**
+- **Seyahat İçerir Ödeme** ilişkisinde
+  - **Zorunlu Katılım:** Her seyahatin bir ödemesi olmalıdır.
+  - **İsteğe Bağlı Katılım:** Bir ödemenin bir seyahate ait olması isteğe bağlıdır.
+  - **Görsel:** Seyahat ve Ödeme arasındaki ilişkiyi temsil eden çizginin bir ucunda düz çizgi, diğer ucunda kesikli çizgi bulunur.
 
-Öncelikle iki temel çizgi türünden başlayalım:
-
-- **Düz Çizgi (`--`)**: Bu çizgi, ilişkideki katılımın zorunlu olduğunu gösterir.
-- **Kesikli Çizgi (`..`)**: Bu çizgi, ilişkide katılımın isteğe bağlı olduğunu gösterir.
-
-Bu çizgilerin sonlarına eklenen semboller, katılımın zorunlu ya da isteğe bağlı olup olmadığını gösterir ve her iki varlık için ayrı ayrı uygulanabilir. Bir taraf zorunlu katılım gösterirken diğer taraf isteğe bağlı katılım gösterebilir.
-
-2. **Semboller ve Anlamları**
-- **`||`: Zorunlu katılım** – Varlığın bu ilişkiye katılması zorunludur.
-- **`|o`: İsteğe bağlı katılım** – Varlık, bu ilişkiye katılmak zorunda değildir; katılabilir veya katılmayabilir.
-
-- **Temel Kardinalite Türleri:**
-    - Bire-Bir (1:1): ||--||
-    - Bire-Çok (1:N): ||--o{
-    - Çoka-Çok (M:N): }o--o{
-- **Zorunluluk Durumlarına Göre:**
-    - Zorunlu: || (çift çizgi)
-    - İsteğe Bağlı: |o (tek çizgi ve boş daire)
-- **Özel İlişki Türleri:**
-    - Kendi Kendine İlişki (Self Relationship)
-    - Çok Yönlü İlişkiler
-    - Türetilmiş İlişkiler
-- **Kardinalite Gösterim Sembolleri:**
-    - || : Zorunlu katılım
-    - |o : İsteğe bağlı katılım
-    - { : Çok (many)
-    - | : Bir (one)
-    - o : Sıfır veya bir/çok
-- **Örnekler ve Kullanım Alanları:**
-    - PERSONEL-PERSONEL_KARTI: Zorunlu bire-bir
-    - DEPARTMAN-CALISAN: Zorunlu bire-çok
-    - OGRENCI-DERS: İsteğe bağlı çoka-çok
-    - CALISAN2-CALISAN2: Kendi kendine ilişki (yönetici-çalışan)
-
-![img25.png](img25.png)
-
-![img26.png](img26.png)
-
-**Örnek Gösterim:**
-- **Müşteri ve Sipariş Arasındaki Zorunluluk:**
-    - Her siparişin bir müşteriye ait olması gerektiği için sipariş tarafında "1" zorunluluk bulunur.
-    - Bir müşterinin hiç siparişi olmaması da mümkündür, bu yüzden müşteri tarafında "0..*" zorunluluk bulunur.
-
-
-![img4.png](img4.png)
-
-
+`Seyahat -> Düz Çizgi -> İçerir -> Kesikli Çizgi -> Ödeme`
 ### **2.3. ER Diyagramı Çizimi**
-ER diyagramları, veritabanı tasarımının görsel bir temsilidir. Aşağıda, ER diyagramı çizimi için temel adımlar ve örnek bir senaryo üzerinden nasıl çizileceği anlatılmaktadır.
+ER diyagramları, veritabanı tasarımının görsel bir temsilidir. Aşağıda, ER diyagramı çizimi için temel adımlar ve C2C taksi uygulaması üzerinden bir örnek sunulmaktadır.
 
-#### **2.3.1. ER Diyagramı Çizim Adımları**
+#### **2.3.1. ER Diyagramı Çizim Adımları*
 1. **Varlıkları Belirleme:**
-    - İlk olarak, veritabanında yer alacak temel varlıkları tanımlayın.
-    - Örneğin, bir e-ticaret sitesi için **Müşteri**, **Ürün**, **Sipariş** varlıkları.
+    - Sistemdeki temel varlıkları tanımlayın.
+    - **Örnek:** Kullanıcı, Araç, Seyahat, Ödeme.
 2. **Öznitelikleri Tanımlama:**
     - Her varlığın sahip olması gereken öznitelikleri belirleyin.
-    - **Müşteri:** ID, Ad, Soyad, E-posta.
-    - **Ürün:** ID, İsim, Fiyat, Stok.
-    - **Sipariş:** ID, MüşteriID, Tarih.
+    - **Kullanıcı:** KullanıcıID, İsim, Soyisim, TelefonNumarası, Rol.
+    - **Araç:** AraçID, PlakaNo, Marka, Model, Renk, KullanıcıID.
+    - **Seyahat:** SeyahatID, BaşlangıçKonumu, BitişKonumu, BaşlamaZamanı, BitişZamanı, SürücüID, YolcuID.
+    - **Ödeme:** ÖdemeID, SeyahatID, Tutar, ÖdemeYöntemi, ÖdemeZamanı.
 3. **İlişkileri Tanımlama:**
     - Varlıklar arasındaki ilişkileri belirleyin.
-    - **Müşteri Verir Sipariş** ilişkisi (1:M).
-    - **Sipariş İçerir Ürün** ilişkisi (M:M).
+    - **Kullanıcı Kullanır Araç** ilişkisi (1:N).
+    - **Kullanıcı Yapar Seyahat** ilişkisi (1:N).
+    - **Seyahat İçerir Ödeme** ilişkisi (1:1).
 4. **Kardinaliteyi Belirleme:**
-    - İlişkilerin kardinalitesini belirleyin ve diyagramda gösterin.
+    - İlişkilerin kardinalitesini ve zorunluluğunu belirleyin ve diyagramda gösterin.
 5. **Görsel Temsil:**
     - Varlıkları dikdörtgenlerle, öznitelikleri ovalarla ve ilişkileri çizgilerle temsil edin.
-    - Kardinaliteyi ilişki çizgilerinin uçlarına ekleyin.
+    - Kardinalite ve zorunluluk sembollerini ilişki çizgilerinin uçlarına ekleyin.
 
-#### **2.3.2. Örnek ER Diyagramı Senaryosu**
-**Senaryo:** Bir e-ticaret sitesi, müşterilerin verdiği siparişleri yönetmek istiyor. Her müşteri bir veya daha fazla sipariş verebilir ve her sipariş bir veya daha fazla ürünü içerebilir.
-
-**Adımlar:**
+#### **2.3.2. C2C Taksi Uygulaması ER Diyagramı**
+**Adımlar:*
 1. **Varlıklar:**
-    - **Müşteri (Customer)**
-    - **Ürün (Product)**
-    - **Sipariş (Order)**
-    - **Sipariş_Urun (Order_Product)** (Çok-Çok ilişkiler için bağlantı varlığı)
+    - **Kullanıcı (User)**
+    - **Araç (Vehicle)**
+    - **Seyahat (Ride)**
+    - **Ödeme (Payment)**
 2. **Öznitelikler:**
-    - **Müşteri:**
-        - ID (INT, PK)
-        - Ad (VARCHAR)
-        - Soyad (VARCHAR)
-        - E-posta (VARCHAR)
-    - **Ürün:**
-        - ID (INT, PK)
+    - **Kullanıcı:**
+        - KullanıcıID (INT, PK)
         - İsim (VARCHAR)
-        - Fiyat (DECIMAL)
-        - Stok (INT)
-    - **Sipariş:**
-        - ID (INT, PK)
-        - MüşteriID (INT, FK)
-        - Tarih (DATE)
-    - **Sipariş_Urun:**
-        - SiparişID (INT, FK)
-        - ÜrünID (INT, FK)
-        - Miktar (INT)
+        - Soyisim (VARCHAR)
+        - TelefonNumarası (VARCHAR)
+        - Rol (VARCHAR)
+    - **Araç:**
+        - AraçID (INT, PK)
+        - PlakaNo (VARCHAR)
+        - Marka (VARCHAR)
+        - Model (VARCHAR)
+        - Renk (VARCHAR)
+        - KullanıcıID (INT, FK)
+    - **Seyahat:**
+        - SeyahatID (INT, PK)
+        - BaşlangıçKonumu (VARCHAR)
+        - BitişKonumu (VARCHAR)
+        - BaşlamaZamanı (DATETIME)
+        - BitişZamanı (DATETIME)
+        - SürücüID (INT, FK)
+        - YolcuID (INT, FK)
+    - **Ödeme:**
+        - ÖdemeID (INT, PK)
+        - SeyahatID (INT, FK)
+        - Tutar (DECIMAL)
+        - ÖdemeYöntemi (VARCHAR)
+        - ÖdemeZamanı (DATETIME)
 3. **İlişkiler:**
-    - **Müşteri Verir Sipariş (1:M):**
-        - Bir müşteri birçok sipariş verebilir.
-    - **Sipariş İçerir Ürün (M:M):
-        - Bir sipariş birçok ürünü içerebilir ve bir ürün birçok siparişte yer alabilir.
-        - Bu ilişkiyi yönetmek için **Sipariş_Urun** adlı bir bağlantı varlığı kullanılır.
-4. **Kardinalite ve Zorunluluk:**
-    - **Müşteri - Sipariş:**
-        - Müşteri tarafı: 1
-        - Sipariş tarafı: 0..*
-    - **Sipariş - Ürün:**
-        - Sipariş tarafı: 1
-        - Ürün tarafı: 0..*
+    - **Kullanıcı Kullanır Araç (1:N):**    
+        - Bir sürücü bir veya daha fazla araca sahip olabilir.
+        - Bir araç sadece bir sürücüye aittir.
+    - **Kullanıcı Yapar Seyahat (1:N):**    
+        - Bir yolcu birden fazla seyahat yapabilir.
+        - Bir seyahat bir yolcuya aittir.
+        - Bir sürücü birden fazla seyahat gerçekleştirebilir.
+        - Bir seyahat bir sürücü tarafından gerçekleştirilir.
+    - **Seyahat İçerir Ödeme (1:1):**    
+        - Her seyahatin bir ödemesi vardır.
+        - Her ödeme bir seyahate aittir.
 
-#### **2.3.3. ER Diyagramı Örneği**
-Aşağıda, yukarıdaki senaryo için oluşturulmuş örnek bir ER diyagramı bulunmaktadır:
+#### **2.3.3. ER Diyagramı Örneği*
+Aşağıda, C2C taksi uygulaması için oluşturulmuş örnek bir ER diyagramı bulunmaktadır:
+![diagram.png](diagram.png)
+- **Varlıklar** dikdörtgenlerle temsil edilir.
+- **Öznitelikler** ovalarla gösterilir ve ilgili varlığa bağlanır.
+- **İlişkiler** romblarla (elmas şekli) gösterilir ve ilişkideki varlıkları bağlar.
+- **Kardinalite** ve **zorunluluk** sembolleri ilişki çizgilerinin uçlarına eklenir.
 
+---
 
-![img5.png](img5.png)
+### **2.4. Kardinalite ve Zorunluluk Sembolleri*
+ER diyagramlarında kardinalite ve zorunluluk, ilişkilerin detaylarını belirtmek için kullanılır.
 
+- **Kardinalite Sembolleri:**
+    - **1**: Bire bir ilişki.
+    - **N** veya **M**: Bire çok veya çok-çok ilişki.
+- **Zorunluluk Sembolleri:**
+    - **|**: Zorunlu katılım.
+    - **O**: İsteğe bağlı katılım.
 
-- **Müşteri** tablosu, **Sipariş** tablosu ile bire-çok ilişki içerisindedir.
-- **Sipariş** ve **Ürün** tabloları arasında çok-çok ilişki bulunmaktadır ve bu ilişki **Sipariş_Urun** tablosu aracılığıyla yönetilmektedir.
+**Örnek (C2C Taksi Uygulaması):*
+- **Kullanıcı Kullanır Araç:**
+    - **Sürücü tarafı:** |1 (Her araç bir sürücüye ait olmalıdır).
+    - **Araç tarafı:** O*N (Bir sürücünün sıfır veya daha fazla aracı olabilir).
+- **Kullanıcı Yapar Seyahat:**
+    - **Yolcu tarafı:** |1 (Her seyahat bir yolcuya ait olmalıdır).
+    - **Seyahat tarafı:** O*N (Bir yolcu sıfır veya daha fazla seyahat yapabilir).
 
+---
 
-![img6.png](img6.png)
-
-### **2.4. ER Diyagramı Çizimi İçin İpuçları ve En İyi Uygulamalar**
+### **2.5. ER Diyagramı Çizimi İçin İpuçları ve En İyi Uygulamalar*
 - **Net ve Tutarlı İsimlendirme:**
-    - Varlık ve öznitelik isimlerini anlaşılır ve tutarlı şekilde adlandırın. Örneğin, "Müşteri" yerine "Customer", "Ad" yerine "FirstName".
+    - Varlık ve öznitelik isimlerini anlaşılır ve tutarlı şekilde adlandırın.
 - **Özniteliklerin Doğru Türde Tanımlanması:**
-    - Veri türlerini doğru seçmek, veritabanının performansı ve veri bütünlüğü açısından önemlidir. Örneğin, tarih için DATE, metin için VARCHAR kullanın.
+    - Veri türlerini doğru seçmek, veritabanının performansı ve veri bütünlüğü açısından önemlidir.
 - **Anahtarların Belirlenmesi:**
-    - Her varlık için benzersiz bir birincil anahtar (PK) belirleyin. Yabancı anahtarlar (FK) aracılığıyla ilişkileri tanımlayın.
+    - Her varlık için benzersiz bir birincil anahtar (PK) belirleyin.
+    - Yabancı anahtarlar (FK) aracılığıyla ilişkileri tanımlayın.
 - **İlişkilerin Doğru Tanımlanması:**
-    - İlişkilerin kardinalite ve zorunluluklarını doğru belirleyin. Bu, veritabanının doğru şekilde çalışmasını sağlar.
-- **Görsel Temizliği Sağlama:**
-    - Diyagramınızı sade ve okunabilir tutun. Karmaşık ilişkileri minimize etmek için bağlantıları düzenli bir şekilde yerleştirin.
+    - İlişkilerin kardinalite ve zorunluluklarını doğru belirleyin.
+- **Görsel Temizliği Sağlama:** 
+    - Diyagramınızı sade ve okunabilir tutun.
 - **Modüler Yaklaşım:**
-    - Büyük ve karmaşık veri modellerini küçük parçalara ayırarak yönetilebilir hale getirin. Örneğin, her bölüm için ayrı ER diyagramları oluşturabilirsiniz.
+    - Büyük ve karmaşık veri modellerini küçük parçalara ayırarak yönetilebilir hale getirin.
 
 ---
 
-### **2.5. ER Diyagramı Çizimi Örnekleri**
-#### **2.5.1. E-Ticaret Veri Modelleme ER Diyagramı**
-**Senaryo:** Bir e-ticaret sitesi, müşterilerin verdiği siparişleri ve bu siparişlerdeki ürünleri yönetmek istiyor. Her müşterinin birden fazla siparişi olabilir ve her sipariş birden fazla ürünü içerebilir.
+### **2.6. ER Diyagramı Çizimi İçin Araçlar ve Teknolojiler**
 
-**Açıklama:**
-- **Müşteri** varlığı, **Sipariş** varlığı ile bire-çok ilişkiye sahiptir.
-- **Sipariş** varlığı, **Sipariş_Urun** varlığı üzerinden **Ürün** varlığı ile çok-çok ilişkiye sahiptir.
-- **Sipariş_Urun** varlığı, her siparişin birden fazla ürünü içerebilmesini sağlar.
-
-#### **2.5.2. Sağlık Sektörü Veri Modelleme ER Diyagramı**
-**Senaryo:** Bir hastane, hastaların randevularını, doktorlarını ve tedavi süreçlerini yönetmek istiyor. Her hastanın birden fazla randevusu olabilir ve her randevu bir doktora atanabilir.
-
-**ER Diyagramı:**
-
-![img7.png](img7.png)
-
-
-**Açıklama:**
-- **Hasta** varlığı, **Randevu** varlığı ile bire-çok ilişkiye sahiptir.
-- **Randevu** varlığı, **Doktor** varlığı ile bire-çok ilişkiye sahiptir.
-- **Randevu** varlığı, **Tedavi** varlığı ile bire-çok ilişkiye sahiptir.
-
----
-
-### **2.6. ER Diyagramı Çizimi için Araçlar ve Teknolojiler**
-ER diyagramları çizmek için birçok araç mevcuttur. Bu araçlar, veri modelleme sürecini kolaylaştırır ve diyagramların profesyonel görünmesini sağlar.
+ER diyagramları çizmek için kullanabileceğiniz bazı araçlar şunlardır:
 - **Lucidchart:**
     - Bulut tabanlı, kullanıcı dostu bir diyagram oluşturma aracıdır.
-    - ER diyagramları için hazır şablonlar ve semboller sunar.
-    - Ekip çalışmasına uygun özellikler içerir.
-- **Microsoft Visio:**
-    - Güçlü bir diyagram ve çizim aracıdır.
-    - Veri modelleme için kapsamlı araç setleri ve şablonlar sağlar.
-    - Microsoft ekosistemi ile entegrasyon avantajı sunar.
-- **Draw.io (diagrams.net):**
+- **draw.io (diagrams.net):**
     - Ücretsiz ve açık kaynaklı bir diyagram oluşturma aracıdır.
-    - ER diyagramları için çeşitli semboller ve şablonlar sunar.
-    - Tarayıcı tabanlı olması sayesinde kolay erişim sağlar.
 - **MySQL Workbench:**
     - MySQL veritabanları için entegre bir modelleme aracıdır.
-    - ER diyagramları oluşturma, veritabanı tasarlama ve yönetme imkanı sunar.
-    - SQL kodu ile otomatik senkronizasyon sağlar.
-- **ER/Studio:**
-    - Karmaşık veri modellerini görselleştirmek için profesyonel bir araçtır.
-    - Gelişmiş özellikler ve veri yönetimi imkanları sunar.
-    - Büyük ölçekli projeler için uygundur.
+- **Microsoft Visio:**
+    - Güçlü bir diyagram ve çizim aracıdır.
 
 ---
 
-### **2.7. ER Diyagramı Çizimi İçin En İyi Uygulamalar**
-- **Net ve Tutarlı İsimlendirme:**
-    - Varlık ve öznitelik isimlerini anlamlı ve tutarlı şekilde adlandırın. Örneğin, "Müşteri" yerine "Customer", "Ad" yerine "FirstName".
-- **Veri Türlerinin Doğru Seçilmesi:**
-    - Her öznitelik için doğru veri türünü belirleyin (örneğin, tarih için DATE, metin için VARCHAR).
-- **Anahtarların Belirlenmesi:**
-    - Her varlık için benzersiz bir birincil anahtar (PK) belirleyin. Yabancı anahtarlar (FK) aracılığıyla ilişkileri tanımlayın.
-- **İlişkilerin Doğru Tanımlanması:**
-    - İlişkilerin kardinalite ve zorunluluklarını doğru belirleyin. Bu, veritabanının doğru şekilde çalışmasını sağlar.
-- **Görsel Temizliği Sağlama:**
-    - Diyagramınızı sade ve okunabilir tutun. Karmaşık ilişkileri minimize etmek için bağlantıları düzenli bir şekilde yerleştirin.
-- **Modüler Yaklaşım:**
-    - Büyük ve karmaşık veri modellerini küçük parçalara ayırarak yönetilebilir hale getirin. Örneğin, her bölüm için ayrı ER diyagramları oluşturabilirsiniz.
-- **Dokümantasyon:**
-    - ER diyagramlarını detaylı bir şekilde dokümante edin. Her varlık, öznitelik ve ilişki için açıklamalar ekleyerek, diyagramın anlaşılabilirliğini artırın.
-- **Güvenlik ve Erişim Kontrolleri:**
-    - Veritabanı erişimlerini doğru şekilde yapılandırarak, veri güvenliğini sağlayın.
+### **2.7. ER Diyagramı Çiziminde Sık Karşılaşılan Hatalar ve Çözümleri**
 
----
-
-### **2.8. ER Diyagramı Çiziminde Sık Karşılaşılan Hatalar ve Çözümleri**
 - **Aşırı Karmaşıklık:**
-    - **Hata:** Diyagramın çok karmaşık olması, anlaşılmasını zorlaştırır.
-    - **Çözüm:** Diyagramı sade tutun, gereksiz detaylardan kaçının ve büyük modelleri bölümlere ayırın.
+    - **Çözüm:** Diyagramı sade tutun ve gerektiğinde modüler hale getirin.
 - **Tutarsız İsimlendirme:**
-    - **Hata:** Varlık ve öznitelik isimlerinin tutarsız olması, anlaşılmayı zorlaştırır.
-    - **Çözüm:** İsimlendirme kuralları belirleyin ve tüm diyagram boyunca bu kurallara uyun.
+    - **Çözüm:** İsimlendirme standartları belirleyin ve bunlara uyun.
 - **Yanlış Kardinalite Gösterimi:**
-    - **Hata:** İlişkilerin kardinalite ve zorunluluklarının yanlış belirtilmesi.
-    - **Çözüm:** Kardinalite kurallarını iyi anlayın ve doğru şekilde uygulayın.
+    - **Çözüm:** Kardinalite ve zorunluluk sembollerini doğru kullanın.
 - **Eksik veya Fazla Öznitelik:**
-    - **Hata:** Varlıkların gerekli özniteliklerinin eksik veya gereksiz özniteliklerle dolu olması.
-    - **Çözüm:** Veri gereksinimlerini dikkatlice analiz edin ve sadece gerekli öznitelikleri ekleyin.
+    - **Çözüm:** Veri gereksinimlerini iyi analiz edin ve sadece gerekli öznitelikleri ekleyin.
 - **İlişkilerin Doğru Tanımlanmaması:**
-    - **Hata:** Varlıklar arasındaki ilişkilerin yanlış veya eksik tanımlanması.
     - **Çözüm:** İlişkileri net bir şekilde belirleyin ve doğru şekilde temsil edin.
 
 ---
 
-### **2.9. Örnek ER Diyagramı**
-Üye ve Ödünç Alma arasında bire-çok, Kitap ve Ödünç Alma arasında bire-çok, Kitap ve Yazar arasında çok-çok ilişki gösterilmektedir
-  
+### **2.8. Örnek ER Diyagramı**
 
-![img8.png](img8.png)
+**C2C Taksi Uygulaması için Tamamlanmış ER Diyagramı:*
+_(Not: Görsel temsil için bir çizim aracı kullanarak diyagramı oluşturabilirsiniz.)_
 
-
-**Açıklama:**
-- **Üye** varlığı, **Ödünç Alma** varlığı ile bire-çok ilişkiye sahiptir. 
-- **Kitap** varlığı, **Ödünç Alma** varlığı ile bire-çok ilişkiye sahiptir. 
-- **Kitap** ve **Yazar** varlıkları arasında çok-çok ilişki bulunmaktadır ve bu ilişki **Kitap_Yazar** adlı bir bağlantı varlığı aracılığıyla yönetilmektedir. 
-- **Kitap_Yazar** varlığı, her kitabın birden fazla yazar tarafından yazılabilmesini sağlar.
+**Açıklama:*
+- **Kullanıcı** varlığı, **Seyahat** varlığı ile iki farklı ilişkiye sahiptir    
+    - **Yapar** (Yolcu olarak)
+    - **Gerçekleştirir** (Sürücü olarak)
+- **Araç** varlığı, **Kullanıcı** varlığı ile bire-çok ilişkiye sahiptir. 
+- **Seyahat** varlığı, **Ödeme** varlığı ile bire-bir ilişkiye sahiptir. 
+- **Kardinalite** ve **zorunluluk** sembolleri doğru şekilde belirtilmiştir.
