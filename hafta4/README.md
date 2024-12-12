@@ -22,5 +22,5 @@
 		- Şema tasarım desenleri (Öznitelik, Bucket, Referans, Polymorphic, Hybrid)
 		- Bileşik anahtarlar ve denormalizasyon
 		- Indexed lookup ve join deseni
-5. [**Workshop:**](./hafta4.5.md)
+5. [**Workshop:**](hafta4.6.md)
 	- **Senaryo:** Bir sosyal medya uygulaması, kullanıcı profillerini ve gönderilerini depolamak istiyor. Uygulama, kullanıcıların profillerini, arkadaşlarını ve paylaştıkları gönderileri takip etmeyi amaçlıyor.
