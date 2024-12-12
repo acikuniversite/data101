@@ -5,7 +5,7 @@
 Docker kullanarak MongoDB veritabanını kolayca başlatabilir ve test edebilirsiniz.
 
 ```
-docker run -d -p 27017:27017 --name mongodb mongo
+docker run --name mongodb-container -d -p 27017:27017 -e MONGO_INITDB_ROOT_USERNAME=admin -e MONGO_INITDB_ROOT_PASSWORD=password mongo
 ```
 
 - **`-d`:** Arka planda çalıştırma.
